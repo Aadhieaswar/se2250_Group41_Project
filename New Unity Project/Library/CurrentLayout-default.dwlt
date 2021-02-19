@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 14
+  controlID: 81
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -152,7 +152,7 @@ MonoBehaviour:
     y: 0
     width: 1600
     height: 817
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 15
+  controlID: 82
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 16
+  controlID: 83
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -266,8 +266,8 @@ MonoBehaviour:
     y: 0
     width: 971
     height: 496
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -377,8 +377,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -484.5
     m_HBaseRangeMax: 484.5
-    m_VBaseRangeMin: -227
-    m_VBaseRangeMax: 227
+    m_VBaseRangeMin: -237.5
+    m_VBaseRangeMax: 237.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -395,11 +395,11 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 969
-      height: 454
+      height: 475
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 484.5, y: 227}
+    m_Translation: {x: 484.5, y: 237.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -407,9 +407,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -484.5
-      y: -227
+      y: -237.5
       width: 969
-      height: 454
+      height: 475
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 969, y: 475}
@@ -494,9 +494,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 06340000
-    m_LastClickedID: 13318
-    m_ExpandedIDs: 00000000ec330000ee330000f0330000f2330000f4330000f6330000f8330000fa330000fc330000fe3300000034000002340000
+    m_SelectedIDs: b8350000
+    m_LastClickedID: 13752
+    m_ExpandedIDs: 000000009e350000a0350000a2350000a4350000a6350000a8350000aa350000ac350000ae350000b0350000b2350000b4350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -524,7 +524,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ec330000ee330000f0330000f2330000f4330000f6330000f8330000fa330000fc330000fe3300000034000002340000
+    m_ExpandedIDs: 000000009e350000a0350000a2350000a4350000a6350000a8350000aa350000ac350000ae350000b0350000b2350000b4350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -649,7 +649,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 94f5ffff4cf6ffff6afbffff
+      m_ExpandedIDs: 56fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -757,13 +757,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.57
   m_Rotation:
-    m_Target: {x: -0.42032897, y: -0.004900539, z: 0.0022747782, w: -0.90736717}
+    m_Target: {x: -0.1867039, y: 0.00795584, z: -0.0015063608, w: -0.98239654}
     speed: 2
-    m_Value: {x: -0.42032075, y: -0.006261519, z: 0.002905239, w: -0.9073494}
+    m_Value: {x: -0.18522763, y: 0.007957985, z: -0.0014944049, w: -0.9826624}
   m_Size:
-    m_Target: 132.65996
+    m_Target: 114.61161
     speed: 2
-    m_Value: 138.91095
+    m_Value: 109.676186
   m_Ortho:
     m_Target: 0
     speed: 2
