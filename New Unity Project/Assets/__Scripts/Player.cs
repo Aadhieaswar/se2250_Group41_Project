@@ -6,24 +6,30 @@ public class Player : MonoBehaviour
 {
     // fields
     [Header("Set in Inspector")]
-    public float speed = 10;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public PlayerHealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float xPos = Input.GetAxis("Horizontal");
-        float zPos = Input.GetAxis("Vertical");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
+    }
 
-        Vector3 pos = transform.position;
-        pos.x += xPos * speed * Time.deltaTime;
-        pos.z += zPos * speed * Time.deltaTime;
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
 
-        transform.position = pos;
+        healthBar.SetHealth(currentHealth);
     }
 }
