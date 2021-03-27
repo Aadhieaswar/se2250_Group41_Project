@@ -24,7 +24,9 @@ public class EnemyStats : CharacterStats
 	{
 		base.Die();
 
-		// Add ragdoll effect / death animation
+        // Add ragdoll effect / death animation
+        this.GetComponent<Animator>().SetBool("IsDead", true);
+        this.GetComponent<Animator>().SetBool("IsDead", false);
 
 		Destroy(gameObject);
 	}

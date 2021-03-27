@@ -7,6 +7,7 @@ public class SubBoss : MonoBehaviour
 {
 
     public float lookRadius = 10f;
+    public Animator animator;
 
     Transform target;
     NavMeshAgent agent;
@@ -24,6 +25,8 @@ public class SubBoss : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
+
+        animator.SetFloat("Distance", distance);
 
         if (distance <= lookRadius)
         {
