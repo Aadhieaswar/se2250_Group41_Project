@@ -7,14 +7,18 @@ public class Player : MonoBehaviour
     // fields
     [Header("Set in Inspector")]
     public int maxHealth = 100;
+    public float speed = 10f;
+
+    [Header("Set Dynamically")]
     public int currentHealth;
-    public PlayerHealthBar healthBar;
+    public PlayerStats playerStats;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        playerStats = GetComponent<PlayerStats>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,14 +26,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(20);
+            playerStats.TakeDamage(20);
         }
-    }
 
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
+        float mH = Input.GetAxis("Horizontal");
+        float mV = Input.GetAxis("Vertical");
+        rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
     }
 }
