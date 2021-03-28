@@ -7,10 +7,12 @@ public class animationStateControl : MonoBehaviour
     Animator animator;
     private float walkingSpeed = 2.0f;
     private float runningSpeed = 5.0f;
+    private GameObject gun;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        gun = GameObject.Find("Shooter");
     }
 
     // Update is called once per frame
@@ -19,11 +21,11 @@ public class animationStateControl : MonoBehaviour
         if (Input.GetKey("w"))
         {
             animator.SetBool("isWalkingPistol", true);
-            transform.position += Vector3.forward * Time.deltaTime * walkingSpeed;
+            transform.position += transform.forward * Time.deltaTime * walkingSpeed;
             if (Input.GetKey("left shift"))
             {
                 animator.SetBool("isRunningPistol", false);
-                transform.position += Vector3.forward * Time.deltaTime * runningSpeed;
+                transform.position += transform.forward * Time.deltaTime * runningSpeed;
             }
             else
             {
@@ -37,7 +39,7 @@ public class animationStateControl : MonoBehaviour
         if (Input.GetKey("d"))
         {
             animator.SetBool("moveRight", true);
-            transform.position += Vector3.right * Time.deltaTime;
+            transform.position += transform.right * Time.deltaTime * walkingSpeed;
         }
         else {
             animator.SetBool("moveRight", false);
@@ -45,7 +47,7 @@ public class animationStateControl : MonoBehaviour
         if (Input.GetKey("a"))
         {
             animator.SetBool("moveLeft", true);
-            transform.position += Vector3.left * Time.deltaTime;
+            transform.position += transform.right * -1 * Time.deltaTime * walkingSpeed;
         }
         else {
             animator.SetBool("moveLeft", false);
@@ -53,7 +55,7 @@ public class animationStateControl : MonoBehaviour
         if (Input.GetKey("s"))
         {
             animator.SetBool("moveBack", true);
-            transform.position += Vector3.back * Time.deltaTime * walkingSpeed;
+            transform.position += transform.forward * -1 * Time.deltaTime * walkingSpeed;
         }
         else {
             animator.SetBool("moveBack", false);
@@ -66,6 +68,11 @@ public class animationStateControl : MonoBehaviour
             animator.SetBool("melee", false);
         }
 
+        if (Input.GetButton("Fire2"))
+        {
+            transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
+            gun.transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
+        }
        
     }
 }

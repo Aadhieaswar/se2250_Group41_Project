@@ -6,16 +6,17 @@ public class BulletMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Rigidbody projectile;
+    [SerializeField] private GameObject gun;
     [SerializeField] private float speed;
     void Start()
     {
-        projectile = this.gameObject.GetComponent<Rigidbody>();
+        projectile = GetComponent<Rigidbody>();
+        gun = GameObject.Find("Hero");
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        projectile.velocity = Vector3.forward * speed;
+        projectile.velocity = gun.transform.forward * speed;
     }
 }

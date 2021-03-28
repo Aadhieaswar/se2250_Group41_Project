@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1865197644833460096}
   - component: {fileID: -7075969562284690376}
   - component: {fileID: -2919791613885009377}
-  - component: {fileID: 8853637301463773473}
+  - component: {fileID: 4352276808578159191}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -173,7 +173,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523319148142470873}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9d3e47f0f33867343b94f31e3127f0f0, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 966787ce31ca2d64080a98c30e33e7c5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -212,7 +212,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8853637301463773473
+--- !u!114 &4352276808578159191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,11 +221,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1523319148142470873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f1dce24d3cb3a4c9c0d62bc1126c54, type: 3}
+  m_Script: {fileID: 11500000, guid: e8a337900f9b2b54d80f2e040fb6e528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 0}
-  hero: {fileID: 1523319148142470873}
 --- !u!1 &1611933795842174824
 GameObject:
   m_ObjectHideFlags: 0
