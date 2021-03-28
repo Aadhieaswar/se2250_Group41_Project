@@ -1,0 +1,34 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyStats : CharacterStats
+{
+    [Header("Set in Inspector")]
+    public GameObject healthBarGo;
+    public Canvas canvas;
+
+    GameObject bar;
+
+    private void Start()
+    {
+        bar = Instantiate(healthBarGo);
+        bar.transform.SetParent(canvas.transform, false);
+        bar.transform.localPosition = new Vector3(0, 0, 0);
+
+        healthBar = bar.GetComponent<HealthBar>();
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
+    public override void Die()
+	{
+		base.Die();
+
+        // Add ragdoll effect / death animation
+        this.GetComponent<Animator>().SetBool("IsDead", true);
+        this.GetComponent<Animator>().SetBool("IsDead", false);
+
+		Destroy(gameObject);
+	}
+
+}
