@@ -6,6 +6,7 @@ public class HenchmanHealth : MonoBehaviour
 {
     public float henchmanHealth = 100f;
     AnimationStateController animationStateController;
+
     private void Start()
     {
         animationStateController = GetComponent<AnimationStateController>();

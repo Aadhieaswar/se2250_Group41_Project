@@ -1984,6 +1984,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3910093654016746615, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194228}
+    - target: {fileID: 5060765284689889939, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 7395553550077405302, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -2066,8 +2076,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8319290971534523658, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319290971534523658, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
+        type: 3}
       propertyPath: henchmanHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749383396979024983, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5d84fcc47895954f9b88ccdd70cd8bf, type: 3}
