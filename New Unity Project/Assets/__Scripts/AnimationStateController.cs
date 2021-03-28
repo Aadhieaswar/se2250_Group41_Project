@@ -28,14 +28,22 @@ public class AnimationStateController : MonoBehaviour
         float distance = Vector3.Distance(transform.position, target.position);
         bool isAttacking = animator.GetBool(isAttackingHash);
         bool isWalking = animator.GetBool(isWalkingHash);
-    
-        if(distance > 3 && !isDead)
+
+        //the henchman only starts to walk and attack once the player is within certain distance
+        if(distance >=50 && !isDead){
+            agent.updatePosition = false;
+            agent.SetDestination(target.position);
+            animator.SetBool(isWalkingHash, false);
+            animator.SetBool(isAttackingHash, false);
+        }
+        else if(distance >= 4.5 && !isDead)
         {
             agent.updatePosition = true;
             agent.SetDestination(target.position);
             animator.SetBool(isWalkingHash, true);
             animator.SetBool(isAttackingHash, false);
         }
+        //henchman stops a certain distance from player and starts attacking
         else
         {
             agent.updatePosition = false;
@@ -48,5 +56,11 @@ public class AnimationStateController : MonoBehaviour
     {
         isDead = true;
         animator.SetTrigger("isDead");
+    }
+
+    //shows how close the player has to be for the henchman to start walking
+    private void OnDrawGizmosSelected(){
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 50);
     }
 }

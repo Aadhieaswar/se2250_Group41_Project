@@ -6,24 +6,31 @@ public class Player : MonoBehaviour
 {
     // fields
     [Header("Set in Inspector")]
-    public float speed = 10;
+    public int maxHealth = 100;
+    public float speed = 10f;
+
+    [Header("Set Dynamically")]
+    public int currentHealth;
+    public PlayerStats playerStats;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerStats = GetComponent<PlayerStats>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float xPos = Input.GetAxis("Horizontal");
-        float zPos = Input.GetAxis("Vertical");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerStats.TakeDamage(20);
+        }
 
-        Vector3 pos = transform.position;
-        pos.x += xPos * speed * Time.deltaTime;
-        pos.z += zPos * speed * Time.deltaTime;
-
-        transform.position = pos;
+        float mH = Input.GetAxis("Horizontal");
+        float mV = Input.GetAxis("Vertical");
+        rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
     }
 }
