@@ -1585,9 +1585,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3644955237056111869}
+  - component: {fileID: 8726566838165346184}
   m_Layer: 0
   m_Name: RightArm
-  m_TagString: Untagged
+  m_TagString: Henchman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1607,6 +1608,20 @@ Transform:
   m_Father: {fileID: 5568600437833798212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8726566838165346184
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819848570864911447}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.3740263
+  m_Direction: 0
+  m_Center: {x: -0.6870107, y: -0.0000012495675, z: 0.00000001909108}
 --- !u!1 &4840894864152472279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,7 +2811,7 @@ GameObject:
   - component: {fileID: 8319290971534523658}
   m_Layer: 0
   m_Name: Henchman_Unity
-  m_TagString: Untagged
+  m_TagString: Henchman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

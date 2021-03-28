@@ -11,14 +11,12 @@ public class SubBoss : MonoBehaviour
 
     Transform target;
     NavMeshAgent agent;
-    CharacterCombat combat;
 
     // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
-        combat = GetComponent<CharacterCombat>();
     }
 
     // Update is called once per frame
@@ -39,7 +37,6 @@ public class SubBoss : MonoBehaviour
                 // attack the target
                 if (targetStats != null)
                 {
-                    combat.Attack(targetStats);
                 }
 
                 // face the target

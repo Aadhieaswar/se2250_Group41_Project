@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerFramingCamera
+  - Henchman
+  - SubBossAttack
   layers:
   - Default
   - TransparentFX
