@@ -2058,7 +2058,7 @@ PrefabInstance:
     - target: {fileID: 8592871797837129831, guid: 4a803ad098e05724889ed5c9fe5043ca,
         type: 3}
       propertyPath: m_Name
-      value: SubBoss_Idle
+      value: SubBoss
       objectReference: {fileID: 0}
     - target: {fileID: 8938470926551200477, guid: 4a803ad098e05724889ed5c9fe5043ca,
         type: 3}

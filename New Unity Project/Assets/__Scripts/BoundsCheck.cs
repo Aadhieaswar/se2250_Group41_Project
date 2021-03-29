@@ -8,5 +8,8 @@ public class BoundsCheck : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
             Destroy(other.gameObject);
+
+        if (other.CompareTag("SubBossAttack"))
+            Destroy(other.gameObject);
     }
 }

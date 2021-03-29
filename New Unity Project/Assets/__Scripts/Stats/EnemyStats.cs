@@ -26,8 +26,6 @@ public class EnemyStats : CharacterStats
 
         // Add ragdoll effect / death animation
         this.GetComponent<Animator>().SetBool("IsDead", true);
-
-		//Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
 	}
 
     private void OnTriggerEnter(Collider other)
