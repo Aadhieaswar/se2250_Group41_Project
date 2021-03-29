@@ -8,9 +8,11 @@ public class SubBoss : MonoBehaviour
 
     public float lookRadius = 10f;
     public Animator animator;
+    public float attacksPerSecond = 0.25f;
 
     Transform target;
     NavMeshAgent agent;
+    float currentTime;
 
     // Start is called before the first frame update
     void Start()
@@ -32,15 +34,22 @@ public class SubBoss : MonoBehaviour
 
             if (distance <= agent.stoppingDistance)
             {
+                currentTime += Time.deltaTime;
+
                 EnemyStats targetStats = target.GetComponent<EnemyStats>();
 
                 // attack the target
                 if (targetStats != null)
                 {
+                    animator.SetBool("IsAttacking", true);
                 }
 
                 // face the target
                 FaceTarget();
+            }
+            else 
+            {
+                animator.SetBool("IsAttacking", false);
             }
         }
     }
