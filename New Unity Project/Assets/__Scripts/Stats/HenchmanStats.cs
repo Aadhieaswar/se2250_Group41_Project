@@ -25,9 +25,7 @@ public class HenchmanStats : CharacterStats
 
         animationStateController = GetComponent<AnimationStateController>();
 
-        //random = Random.Range(0, 2);
-        random = 1;
-        Debug.Log(random);
+        random = Random.Range(0, 2);
     }
 
     public override void Die()
