@@ -9,6 +9,7 @@ TagManager:
   - SubBossAttack
   - Bullet
   - Melee
+  - Healer
   layers:
   - Default
   - TransparentFX

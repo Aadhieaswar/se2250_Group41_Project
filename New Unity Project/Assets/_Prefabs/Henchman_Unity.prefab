@@ -3027,6 +3027,8 @@ MonoBehaviour:
     baseValue: 0
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
     type: 3}
+  heldHealer: {fileID: 4152205320759835433, guid: c250784e961fc4449a5a6d12edd97eb1,
+    type: 3}
   canvas: {fileID: 8727370482804543956}
 --- !u!1 &8083393129070302663
 GameObject:

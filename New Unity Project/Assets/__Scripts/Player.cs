@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Henchman")) {
             playerStats.TakeDamage(5);
         }
+        if (other.gameObject.CompareTag("Healer")) {
+            playerStats.IncreaseHealth(15);
+            Destroy(other.gameObject);
+        }
     }
 
 

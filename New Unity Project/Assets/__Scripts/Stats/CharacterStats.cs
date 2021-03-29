@@ -33,6 +33,12 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public void IncreaseHealth(int health) {
+        currentHealth += health;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthBar.SetHealth(currentHealth);
+    }
+
     public virtual void Die()
     {
         // method to be overriden for death of each character

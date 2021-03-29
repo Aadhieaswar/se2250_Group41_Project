@@ -6,7 +6,9 @@ public class HenchmanStats : CharacterStats
 {
     [Header("Set in Inspector")]
     public GameObject healthBarGo;
+    public GameObject heldHealer;
     public Canvas canvas;
+    private int random;
 
     AnimationStateController animationStateController;
     GameObject bar;
@@ -22,6 +24,10 @@ public class HenchmanStats : CharacterStats
         healthBar.SetMaxHealth(maxHealth);
 
         animationStateController = GetComponent<AnimationStateController>();
+
+        //random = Random.Range(0, 2);
+        random = 1;
+        Debug.Log(random);
     }
 
     public override void Die()
@@ -29,6 +35,10 @@ public class HenchmanStats : CharacterStats
         base.Die();
         animationStateController.HenchmanDeathAnim();
         Destroy(gameObject, 3f);
+        if (random == 1)
+        {
+            InstantiateHealer();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +49,12 @@ public class HenchmanStats : CharacterStats
         }
         if (other.gameObject.CompareTag("Melee")) {
             TakeDamage(25);
-            Debug.Log(this.currentHealth);
         }
+    }
+
+    private void InstantiateHealer() {
+        heldHealer.transform.position = this.transform.position;
+        Vector3 heldHealerPosition = heldHealer.transform.position;
+        Instantiate(heldHealer, new Vector3(heldHealerPosition.x, heldHealerPosition.y + 3, heldHealerPosition.z),Quaternion.Euler(0f, 0f, 0f));
     }
 }
