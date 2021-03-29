@@ -8,6 +8,7 @@ TagManager:
   - Henchman
   - SubBossAttack
   - Bullet
+  - Melee
   layers:
   - Default
   - TransparentFX

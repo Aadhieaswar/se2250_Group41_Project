@@ -350,6 +350,11 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2016945347682720206, guid: 3cafcbb206af9e44d8c62add0e659282,
+        type: 3}
+      propertyPath: m_TagString
+      value: Melee
+      objectReference: {fileID: 0}
     - target: {fileID: 2191065116456615011, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}
       propertyPath: m_RootOrder
@@ -428,36 +433,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 188461061}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &315456831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315456826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beff4e0e562663e448d249d7dbd1a4b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthBar: {fileID: 1931691432}
-  damage:
-    baseValue: 0
-  armor:
-    baseValue: 0
---- !u!114 &315456832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315456826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e030561c77ed5714ebbf49183d2e0523, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &315456833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,12 +1752,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829484664}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0015057976
-  m_Height: 0.007529136
+  m_Height: 0.014109029
   m_Direction: 1
-  m_Center: {x: -0.00041079824, y: 0.0025297594, z: -0.00031276295}
+  m_Center: {x: -0.00041079827, y: 0.005819722, z: -0.00031276137}
 --- !u!1 &1915318214
 GameObject:
   m_ObjectHideFlags: 0

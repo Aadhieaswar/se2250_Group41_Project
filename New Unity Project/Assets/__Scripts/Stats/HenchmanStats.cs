@@ -27,8 +27,8 @@ public class HenchmanStats : CharacterStats
     public override void Die()
     {
         base.Die();
-
         animationStateController.HenchmanDeathAnim();
+        Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +36,10 @@ public class HenchmanStats : CharacterStats
         if (other.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(50);
+        }
+        if (other.gameObject.CompareTag("Melee")) {
+            TakeDamage(25);
+            Debug.Log(this.currentHealth);
         }
     }
 }
