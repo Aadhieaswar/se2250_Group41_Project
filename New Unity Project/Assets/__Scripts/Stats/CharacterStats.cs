@@ -13,8 +13,7 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        if (healthBar != null)
-            healthBar.SetMaxHealth(maxHealth);
+        InitializeStatus();
     }
 
     public void TakeDamage(int damage)
@@ -37,6 +36,14 @@ public class CharacterStats : MonoBehaviour
         currentHealth += health;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
+    }
+
+    public virtual void InitializeStatus()
+    {
+        if (healthBar != null)
+            healthBar.SetMaxHealth(maxHealth);
+
+        // can be overriden to instantiate other stuff in the awake method
     }
 
     public virtual void Die()

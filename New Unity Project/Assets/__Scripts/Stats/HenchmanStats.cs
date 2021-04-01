@@ -32,6 +32,10 @@ public class HenchmanStats : CharacterStats
     {
         base.Die();
         animationStateController.HenchmanDeathAnim();
+
+        PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        playerStats.IncreaseXp(5);
+
         Destroy(gameObject, 3f);
         if (random == 1)
         {
