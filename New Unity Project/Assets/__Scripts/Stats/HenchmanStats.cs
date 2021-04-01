@@ -12,6 +12,7 @@ public class HenchmanStats : CharacterStats
 
     AnimationStateController animationStateController;
     GameObject bar;
+    bool _gaveXp = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,13 @@ public class HenchmanStats : CharacterStats
         base.Die();
         animationStateController.HenchmanDeathAnim();
 
-        PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-        playerStats.IncreaseXp(5);
+        // give the player XP points on death
+        if (!_gaveXp)
+        {
+            PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+            playerStats.IncreaseXp(5);
+            _gaveXp = true;
+        }
 
         Destroy(gameObject, 3f);
         if (random == 1)
