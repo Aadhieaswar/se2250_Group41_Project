@@ -18,7 +18,7 @@ public class SubBossProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target.transform != null)
-            rb.velocity = target.transform.forward * speed;   
+        if (target != null)
+            rb.velocity = target.forward * speed;   
     }
 }
