@@ -157,7 +157,7 @@ MonoBehaviour:
   projectile: {fileID: 6518322070019287928, guid: 4a5b46a4959bdc64cbeb3d2464ea8783,
     type: 3}
   animator: {fileID: 4947704607454996795}
-  attacksPerSecond: 0.25
+  attacksPerSecond: 0.5
 --- !u!136 &6686252434988871873
 CapsuleCollider:
   m_ObjectHideFlags: 0

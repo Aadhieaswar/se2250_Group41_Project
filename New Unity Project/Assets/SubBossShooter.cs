@@ -10,7 +10,6 @@ public class SubBossShooter : MonoBehaviour
     public float attacksPerSecond = 0.25f;
 
     float currentTime;
-    //Transform target;
 
     void Update()
     {
@@ -24,13 +23,10 @@ public class SubBossShooter : MonoBehaviour
 
         if (currentTime >= (1f/attacksPerSecond))
         {
-            //target = PlayerManager.instance.player.transform;
 
-            GameObject proj = Instantiate(projectile, transform.position, Quaternion.Euler(90f, 0f, 0f));
+            GameObject proj = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, 0f));
 
             currentTime = 0.0f;
-
-            print("Sub boss shooted " + currentTime);
         }
     }
 }
