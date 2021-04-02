@@ -35,6 +35,7 @@ public class PlayerStats : CharacterStats
         xpBar.SetMaxXp(currentMaxXp);
 
         // code for selecting power up (to be added later)
+        LevelUpMenu.S.ShowLevelUpOption();
     }
 
     public override void Die()
