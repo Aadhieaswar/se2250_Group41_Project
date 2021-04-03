@@ -35,7 +35,7 @@ public class PlayerStats : CharacterStats
         xpBar.SetMaxXp(currentMaxXp);
 
         // reset xp value
-        xp = 0;
+        xp -= maxHealth;
 
         // code for selecting power up
         LevelUpMenu.S.ShowLevelUpOption();

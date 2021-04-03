@@ -38,7 +38,7 @@ public class HenchmanStats : CharacterStats
         if (!_gaveXp)
         {
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-            playerStats.IncreaseXp(5);
+            playerStats.IncreaseXp(20);
             _gaveXp = true;
         }
 

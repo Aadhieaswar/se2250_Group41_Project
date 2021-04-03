@@ -17,12 +17,20 @@ public class LevelUpMenu : MonoBehaviour
 
     public void ShowLevelUpOption()
     {
+        // set the UI to active
         levelUpUI.SetActive(true);
+
+        // pause game
+        Time.timeScale = 0f;
     }
 
     void HideLevelUpOption()
     {
+        // set the UI to inactive
         levelUpUI.SetActive(false);
+
+        // resume game
+        Time.timeScale = 1f;
     }
 
     public void IncreaseAtk()
