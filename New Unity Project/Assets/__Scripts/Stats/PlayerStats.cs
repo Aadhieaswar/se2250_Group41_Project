@@ -26,15 +26,18 @@ public class PlayerStats : CharacterStats
             return;
         }
         xpBar.SetXp(xp);
-        print("XP increased");
     }
 
     public void LevelUp()
     {
         currentMaxXp += (int)(currentMaxXp * 0.25);
+        print(currentMaxXp);
         xpBar.SetMaxXp(currentMaxXp);
 
-        // code for selecting power up (to be added later)
+        // reset xp value
+        xp = 0;
+
+        // code for selecting power up
         LevelUpMenu.S.ShowLevelUpOption();
     }
 
