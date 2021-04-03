@@ -12,7 +12,7 @@ public class HenchmanStats : CharacterStats
 
     AnimationStateController animationStateController;
     GameObject bar;
-    bool _gaveXp = false;
+    bool _isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -32,21 +32,29 @@ public class HenchmanStats : CharacterStats
     public override void Die()
     {
         base.Die();
-        animationStateController.HenchmanDeathAnim();
 
         // give the player XP points on death
-        if (!_gaveXp)
+        if (_isAlive)
         {
+            // give player xp for the kill
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-            playerStats.IncreaseXp(20);
-            _gaveXp = true;
+            playerStats.IncreaseXp(5);
+
+            // play the death animation
+            animationStateController.HenchmanDeathAnim();
+
+            // instantiate the healer (on condition)
+            if (random == 1)
+            {
+                InstantiateHealer();
+            }
+
+            // update variable
+            _isAlive = false;
         }
 
         Destroy(gameObject, 3f);
-        if (random == 1)
-        {
-            InstantiateHealer();
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,14 +63,16 @@ public class HenchmanStats : CharacterStats
         {
             TakeDamage(50);
         }
-        if (other.gameObject.CompareTag("Melee")) {
+        if (other.gameObject.CompareTag("Melee"))
+        {
             TakeDamage(25);
         }
     }
 
-    private void InstantiateHealer() {
+    private void InstantiateHealer()
+    {
         heldHealer.transform.position = this.transform.position;
         Vector3 heldHealerPosition = heldHealer.transform.position;
-        Instantiate(heldHealer, new Vector3(heldHealerPosition.x, heldHealerPosition.y + 3, heldHealerPosition.z),Quaternion.Euler(0f, 0f, 0f));
+        Instantiate(heldHealer, new Vector3(heldHealerPosition.x, heldHealerPosition.y + 3, heldHealerPosition.z), Quaternion.Euler(0f, 0f, 0f));
     }
 }
