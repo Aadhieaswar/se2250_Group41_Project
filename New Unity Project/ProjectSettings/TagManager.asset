@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerFramingCamera
+  - Henchman
+  - SubBossAttack
+  - Bullet
+  - Melee
+  - Healer
   layers:
   - Default
   - TransparentFX
