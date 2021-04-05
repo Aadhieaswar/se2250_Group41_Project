@@ -17,9 +17,4 @@ public class Spawner : MonoBehaviour
         Instantiate(spawnedObject, transform.position, transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
