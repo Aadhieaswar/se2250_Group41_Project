@@ -40,6 +40,9 @@ public class HenchmanStats : CharacterStats
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
             playerStats.IncreaseXp(5);
 
+            //increase killounter
+            Sub_Spawner.killCount++;
+
             // play the death animation
             animationStateController.HenchmanDeathAnim();
 
