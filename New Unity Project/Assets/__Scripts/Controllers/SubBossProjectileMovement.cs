@@ -12,7 +12,7 @@ public class SubBossProjectileMovement : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("SubBoss").transform;
+        target = GameObject.Find("SubBoss Variant(Clone)").transform;
     }
 
     // Update is called once per frame

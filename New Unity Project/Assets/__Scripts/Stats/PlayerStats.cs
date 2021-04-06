@@ -44,6 +44,6 @@ public class PlayerStats : CharacterStats
     public override void Die()
     {
         base.Die();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("MainMenu");
     }
 }
