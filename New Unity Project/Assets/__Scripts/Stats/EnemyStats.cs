@@ -9,6 +9,7 @@ public class EnemyStats : CharacterStats
     public Canvas canvas;
 
     GameObject bar;
+    bool _isAlive;
 
     private void Start()
     {
@@ -18,24 +19,52 @@ public class EnemyStats : CharacterStats
 
         healthBar = bar.GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
+
+        _isAlive = true;
     }
 
     public override void Die()
 	{
 		base.Die();
 
-        // Add ragdoll effect / death animation
-        this.GetComponent<Animator>().SetBool("IsDead", true);
+        if (_isAlive)
+        {
+            // give player xp for the kill
+            PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+            playerStats.IncreaseXp(15);
+
+            // play death animation
+            this.GetComponent<Animator>().SetBool("IsDead", true);
+
+            // code to give the player the SubBoss powerUp
+
+            // update the _isAlive variable
+            _isAlive = false;
+        }
+
+
+        StartCoroutine(LoadNext());
 	}
+
+    IEnumerator LoadNext()
+    {
+        yield return new WaitForSeconds(4f);
+        PlayerManager.instance.Unload("Level1");
+        PlayerManager.instance.LoadLevel("Level2");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        Stat damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage;
+
         if (other.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(50);
+            TakeDamage(damage.GetValue());
         }
-        if (other.gameObject.CompareTag("Melee")) {
-            TakeDamage(25);
+
+        if (other.gameObject.CompareTag("Melee"))
+        {
+            TakeDamage(damage.GetValue() / 2);
         }
     }
 }

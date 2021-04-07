@@ -31,7 +31,7 @@ public class PlayerStats : CharacterStats
     public void LevelUp()
     {
         currentMaxXp += (int)(currentMaxXp * 0.25);
-        print(currentMaxXp);
+
         xpBar.SetMaxXp(currentMaxXp);
 
         // reset xp value
@@ -45,5 +45,19 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void IncreaseMaxHealth(int healthIncrease)
+    {
+        maxHealth += healthIncrease;
+        maxHealth = Mathf.Clamp(maxHealth, 0, int.MaxValue);
+
+        if (healthBar != null)
+            healthBar.SetMaxHealth(maxHealth);
+    }
+
+    public void IncreaseMaxAttack(int damage)
+    {
+        this.damage.IncreaseValue(damage);
     }
 }

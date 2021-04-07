@@ -12,4 +12,9 @@ public class Stat
     {
         return baseValue;
     }
+
+    public void IncreaseValue(int value)
+    {
+        baseValue += value;
+    }
 }

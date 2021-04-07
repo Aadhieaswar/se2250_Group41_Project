@@ -220,7 +220,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 0}
   damage:
-    baseValue: 0
+    baseValue: 30
   armor:
     baseValue: 0
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,

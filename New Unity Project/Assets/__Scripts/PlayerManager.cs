@@ -20,4 +20,21 @@ public class PlayerManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void LoadLevel(string scene)
+    {
+        StartCoroutine(LoadLevelAndSetActive(scene));
+    }
+
+    public void Unload(string scene)
+    {
+        SceneManager.UnloadSceneAsync(scene);
+    }
+
+    IEnumerator LoadLevelAndSetActive(string level)
+    {
+        yield return SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+
+		SceneManager.SetActiveScene(SceneManager.GetSceneByName(level));
+    }
 }

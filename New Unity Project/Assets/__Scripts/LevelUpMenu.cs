@@ -36,6 +36,7 @@ public class LevelUpMenu : MonoBehaviour
     public void IncreaseAtk()
     {
         // code to increase player attack
+        PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseMaxAttack(10);
 
         HideLevelUpOption();
     }
@@ -43,6 +44,7 @@ public class LevelUpMenu : MonoBehaviour
     public void IncreaseHealth()
     {
         // code to increase player health
+        PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseMaxHealth(20);
 
         HideLevelUpOption();
     }

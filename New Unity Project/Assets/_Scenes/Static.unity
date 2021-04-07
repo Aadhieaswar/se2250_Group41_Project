@@ -635,7 +635,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 1790726607}
   damage:
-    baseValue: 0
+    baseValue: 50
   armor:
     baseValue: 0
   xpBar: {fileID: 1790726606}

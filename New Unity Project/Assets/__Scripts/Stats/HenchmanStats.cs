@@ -62,13 +62,15 @@ public class HenchmanStats : CharacterStats
 
     private void OnTriggerEnter(Collider other)
     {
+        Stat damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage;
+
         if (other.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(50);
+            TakeDamage(damage.GetValue());
         }
         if (other.gameObject.CompareTag("Melee"))
         {
-            TakeDamage(25);
+            TakeDamage(damage.GetValue() / 2);
         }
     }
 
