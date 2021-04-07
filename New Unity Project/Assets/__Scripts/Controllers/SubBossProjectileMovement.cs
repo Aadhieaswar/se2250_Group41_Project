@@ -8,7 +8,7 @@ public class SubBossProjectileMovement : MonoBehaviour
     public Rigidbody rb;
     public float speed = 100f;
 
-    Transform target;
+    protected Transform target;
 
     private void Start()
     {
@@ -18,7 +18,11 @@ public class SubBossProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+    }
+
+    protected void Move() {
         if (target != null)
-            rb.velocity = target.forward * speed;   
+            rb.velocity = target.forward * speed;
     }
 }
