@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : CharacterStats
 {
@@ -27,30 +28,35 @@ public class EnemyStats : CharacterStats
 	{
 		base.Die();
 
+
         if (_isAlive)
         {
+            print("died");
+
             // give player xp for the kill
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
             playerStats.IncreaseXp(15);
 
-            // play death animation
-            this.GetComponent<Animator>().SetBool("IsDead", true);
-
+            // start the next scene
+            StartCoroutine(PlayDeathAnim());
+            
             // code to give the player the SubBoss powerUp
 
             // update the _isAlive variable
             _isAlive = false;
+
         }
-
-
-        StartCoroutine(LoadNext());
 	}
 
-    IEnumerator LoadNext()
+    IEnumerator PlayDeathAnim()
     {
-        yield return new WaitForSeconds(4f);
-        PlayerManager.instance.Unload("Level1");
-        PlayerManager.instance.LoadLevel("Level2");
+        this.GetComponent<Animator>().SetTrigger("Die");
+
+        yield return new WaitForSeconds(3);
+
+        Destroy(gameObject, 1f);
+
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void OnTriggerEnter(Collider other)

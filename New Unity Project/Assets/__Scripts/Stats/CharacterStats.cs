@@ -3,7 +3,7 @@
 public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth { get; private set; }
+    public int currentHealth { get; protected set; }
     
     public HealthBar healthBar;
 
@@ -16,7 +16,7 @@ public class CharacterStats : MonoBehaviour
         InitializeStatus();
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -32,11 +32,11 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void IncreaseHealth(int health) {
-        currentHealth += health;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        healthBar.SetHealth(currentHealth);
-    }
+    //public void IncreaseHealth(int health) {
+    //    currentHealth += health;
+    //    currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    //    healthBar.SetHealth(currentHealth);
+    //}
 
     public virtual void InitializeStatus()
     {

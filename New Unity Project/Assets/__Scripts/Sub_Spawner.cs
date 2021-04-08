@@ -9,14 +9,16 @@ public class Sub_Spawner : MonoBehaviour
     public static int killCount = 0;
 
     private void Spawn(){
-        Instantiate(spawnedObject, transform.position, transform.rotation);
+        GameObject go = Instantiate(spawnedObject, transform.position, transform.rotation);
+        go.name = "SubBoss";
     }
 
     // Update is called once per frame
     void Update()
     {
         //spawns the subboss once 2 henchman have been killed
-        if(killCount == 2){
+        if (killCount == 2)
+        {
             Spawn();
             killCount++;
         }

@@ -22,8 +22,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Henchman")) {
-            Stat damage = other.GetComponent<HenchmanStats>().damage;
-            playerStats.TakeDamage(damage.GetValue());
+            playerStats.TakeDamage(5);
         }
 
         if (other.gameObject.CompareTag("Healer")) {
@@ -33,8 +32,7 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.CompareTag("SubBossAttack"))
         {
-            Stat damage = other.GetComponent<EnemyStats>().damage;
-            playerStats.TakeDamage(damage.GetValue());
+            playerStats.TakeDamage(30);
             Destroy(other.gameObject);
         }
 

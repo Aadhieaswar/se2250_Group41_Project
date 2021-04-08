@@ -17,6 +17,13 @@ public class PlayerStats : CharacterStats
         xpBar.SetMaxXp(currentMaxXp);
     }
 
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+
+        PlayerManager.currentHealth = this.currentHealth;
+    }
+
     public void IncreaseXp(int XP)
     {
         xp += XP;
@@ -47,17 +54,59 @@ public class PlayerStats : CharacterStats
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void IncreaseMaxHealth(int healthIncrease)
-    {
-        maxHealth += healthIncrease;
-        maxHealth = Mathf.Clamp(maxHealth, 0, int.MaxValue);
+    public void IncreaseHealth(int health) {
+        currentHealth += health;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthBar.SetHealth(currentHealth);
 
-        if (healthBar != null)
-            healthBar.SetMaxHealth(maxHealth);
+        PlayerManager.currentHealth = this.currentHealth;
     }
 
-    public void IncreaseMaxAttack(int damage)
+    // property to set damage of player
+    public int dmg
     {
-        this.damage.IncreaseValue(damage);
+        set
+        {
+            this.damage.SetValue(value);
+        }
+
+        get
+        {
+            return this.damage.GetValue();
+        }
+    }
+
+    // property to set health of player
+    public int currHp
+    {
+        set
+        {
+            this.currentHealth = value;
+            this.currentHealth = Mathf.Clamp(this.currentHealth, 0, int.MaxValue);
+
+            healthBar.SetHealth(this.currentHealth);
+        }
+
+        get
+        {
+            return this.currentHealth;
+        }
+    }
+
+    // property to set max health of player
+    public int currMaxHp
+    {
+        set
+        {
+            this.maxHealth = value;
+            this.maxHealth = Mathf.Clamp(this.maxHealth, 0, int.MaxValue);
+
+            healthBar.SetMaxHealth(this.maxHealth);
+        }
+
+        get
+        {
+            return this.maxHealth;
+        }
     }
 }

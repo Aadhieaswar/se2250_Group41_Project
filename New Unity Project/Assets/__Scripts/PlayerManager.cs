@@ -16,25 +16,44 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject player;
 
+    public static int currentDamage = 50;
+    public static int currentHealth = 100;
+    public static int currentMaxHealth = 100;
+
+    private void Start()
+    {
+        PlayerStats stats = instance.player.GetComponent<PlayerStats>();
+
+        stats.dmg = currentDamage;
+        stats.currMaxHp = currentMaxHealth;
+        stats.currHp = currentHealth;
+
+        // debug
+        print("damage: " + stats.damage.GetValue());
+        print("max health: " + stats.maxHealth);
+        print("curr health: " + stats.maxHealth);
+    }
+
     public void KillPlayer()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void LoadLevel(string scene)
+    public static void IncreasePlayerAttack(int damage)
     {
-        StartCoroutine(LoadLevelAndSetActive(scene));
+        currentDamage += damage;
+        currentDamage = Mathf.Clamp(currentDamage, 0, int.MaxValue);
+
+        instance.player.GetComponent<PlayerStats>().dmg = currentDamage;
     }
 
-    public void Unload(string scene)
+    public static void IncreasePlayerMaxHealth(int maxHealth)
     {
-        SceneManager.UnloadSceneAsync(scene);
-    }
+        currentMaxHealth += maxHealth;
+        currentMaxHealth = Mathf.Clamp(currentMaxHealth, 0, int.MaxValue);
 
-    IEnumerator LoadLevelAndSetActive(string level)
-    {
-        yield return SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+        currentHealth = currentMaxHealth;
 
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName(level));
+        instance.player.GetComponent<PlayerStats>().currMaxHp = currentMaxHealth;
     }
 }
