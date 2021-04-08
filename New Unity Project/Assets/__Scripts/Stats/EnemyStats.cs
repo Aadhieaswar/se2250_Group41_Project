@@ -31,13 +31,11 @@ public class EnemyStats : CharacterStats
 
         if (_isAlive)
         {
-            print("died");
-
             // give player xp for the kill
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
             playerStats.IncreaseXp(15);
 
-            // start the next scene
+            // play the death animation and start the next scene
             StartCoroutine(PlayDeathAnim());
             
             // code to give the player the SubBoss powerUp

@@ -27,11 +27,6 @@ public class PlayerManager : MonoBehaviour
         stats.dmg = currentDamage;
         stats.currMaxHp = currentMaxHealth;
         stats.currHp = currentHealth;
-
-        // debug
-        print("damage: " + stats.damage.GetValue());
-        print("max health: " + stats.maxHealth);
-        print("curr health: " + stats.maxHealth);
     }
 
     public void KillPlayer()

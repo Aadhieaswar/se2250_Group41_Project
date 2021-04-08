@@ -38,7 +38,7 @@ public class HenchmanStats : CharacterStats
         {
             // give player xp for the kill
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-            playerStats.IncreaseXp(10);
+            playerStats.IncreaseXp(5);
 
             //increase killounter
             Sub_Spawner.killCount++;
