@@ -44,6 +44,9 @@ public class PlayerStats : CharacterStats
         // reset xp value
         xp -= maxHealth;
 
+        // Show Level in status bar
+        PlayerManager.instance.LevelUpPlayer();
+
         // code for selecting power up
         LevelUpMenu.S.ShowLevelUpOption();
     }

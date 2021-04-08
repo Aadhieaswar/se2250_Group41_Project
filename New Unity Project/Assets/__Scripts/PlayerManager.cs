@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject player;
 
+    public static int playerLevel = 1;
     public static int currentDamage = 50;
     public static int currentHealth = 100;
     public static int currentMaxHealth = 100;
@@ -32,6 +33,13 @@ public class PlayerManager : MonoBehaviour
     public void KillPlayer()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LevelUpPlayer()
+    {
+        playerLevel++;
+
+        PlayerLevelManager.S.UpdateLevel(playerLevel);
     }
 
     public static void IncreasePlayerAttack(int damage)
