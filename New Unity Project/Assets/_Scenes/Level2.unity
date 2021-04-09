@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 7bbaa7199e6a2e8449797fb8a2fc630b, type: 2}
 --- !u!1001 &186661955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ PrefabInstance:
     - target: {fileID: 2191065116456615011, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2191065116456615011, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}
@@ -5273,7 +5273,7 @@ Transform:
   - {fileID: 491086483}
   - {fileID: 943854386}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755878409
 GameObject:
