@@ -9,8 +9,11 @@ public class EnemyStats : CharacterStats
     public GameObject healthBarGo;
     public Canvas canvas;
 
+    // set dynamically
+    [HideInInspector]
+    public bool isAlive;
+
     GameObject bar;
-    bool _isAlive;
 
     private void Start()
     {
@@ -21,40 +24,7 @@ public class EnemyStats : CharacterStats
         healthBar = bar.GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
 
-        _isAlive = true;
-    }
-
-    public override void Die()
-	{
-		base.Die();
-
-
-        if (_isAlive)
-        {
-            // give player xp for the kill
-            PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-            playerStats.IncreaseXp(15);
-
-            // play the death animation and start the next scene
-            StartCoroutine(PlayDeathAnim());
-            
-            // code to give the player the SubBoss powerUp
-
-            // update the _isAlive variable
-            _isAlive = false;
-
-        }
-	}
-
-    IEnumerator PlayDeathAnim()
-    {
-        this.GetComponent<Animator>().SetTrigger("Die");
-
-        yield return new WaitForSeconds(3);
-
-        Destroy(gameObject, 1f);
-
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        isAlive = true;
     }
 
     private void OnTriggerEnter(Collider other)

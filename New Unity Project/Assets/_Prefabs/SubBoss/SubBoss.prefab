@@ -205,27 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 10
   animator: {fileID: 4947704607454996795}
---- !u!114 &3899525326355851123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592871797837129831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da50f9cf370a5f4a889c49e8487e731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthBar: {fileID: 0}
-  damage:
-    baseValue: 30
-  armor:
-    baseValue: 0
-  healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
-    type: 3}
-  canvas: {fileID: 5638684974461325597}
 --- !u!195 &7847901376185100785
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -248,6 +227,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8343813513955670909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592871797837129831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f959941ebe81c9d48b2d0120885b61d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthBar: {fileID: 0}
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+  healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
+    type: 3}
+  canvas: {fileID: 5638684974461325597}
+  _isAlive: 0
 --- !u!1001 &8899511498431321398
 PrefabInstance:
   m_ObjectHideFlags: 0

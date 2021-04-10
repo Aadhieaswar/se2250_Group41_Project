@@ -1900,7 +1900,7 @@ GameObject:
   - component: {fileID: -506411551700153027}
   - component: {fileID: 8045049247401467796}
   - component: {fileID: 1126418431890357378}
-  - component: {fileID: 611195138287489087}
+  - component: {fileID: 1972000626890470969}
   m_Layer: 0
   m_Name: SubBoss2
   m_TagString: Untagged
@@ -1994,7 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 60
   animator: {fileID: -1711977334849668831}
---- !u!114 &611195138287489087
+--- !u!114 &1972000626890470969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7864823387133837076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da50f9cf370a5f4a889c49e8487e731, type: 3}
+  m_Script: {fileID: 11500000, guid: 903ea07d26162a641a534aac40435c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
@@ -2015,6 +2015,7 @@ MonoBehaviour:
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
     type: 3}
   canvas: {fileID: 627214181895303921}
+  isAlive: 0
 --- !u!1 &7880706469928897818
 GameObject:
   m_ObjectHideFlags: 0

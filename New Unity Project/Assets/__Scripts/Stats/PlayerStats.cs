@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats
 {
-    // new fields
+    // fields
     public XPBar xpBar;
     public int xp { get; private set; }
     public int currentMaxXp = 20;
@@ -21,12 +21,17 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamage(damage);
 
+        // update player manager
         PlayerManager.currentHealth = this.currentHealth;
     }
 
     public void IncreaseXp(int XP)
     {
         xp += XP;
+
+        // update player manager
+        PlayerManager.playerCurrentXp = xp;
+
         if (xp >= currentMaxXp)
         {
             LevelUp();
@@ -35,14 +40,22 @@ public class PlayerStats : CharacterStats
         xpBar.SetXp(xp);
     }
 
-    public void LevelUp()
+    void LevelUp()
     {
-        currentMaxXp += (int)(currentMaxXp * 0.25);
+        int tmpMaxXp = currentMaxXp;
 
+        currentMaxXp += (int)(currentMaxXp * 0.25);
         xpBar.SetMaxXp(currentMaxXp);
 
-        // reset xp value
-        xp -= maxHealth;
+        // update player manager
+        PlayerManager.playerCurrentMaxXp = currentMaxXp;
+
+        // reset xp value and set it
+        xp -= tmpMaxXp;
+        xpBar.SetXp(xp);
+
+        // update player manager
+        PlayerManager.playerCurrentXp = xp;
 
         // Show Level in status bar
         PlayerManager.instance.LevelUpPlayer();
@@ -54,7 +67,8 @@ public class PlayerStats : CharacterStats
     public override void Die()
     {
         base.Die();
-        SceneManager.LoadScene("MainMenu");
+
+        PlayerManager.instance.KillPlayer();
     }
 
     public void IncreaseHealth(int health) {
@@ -62,6 +76,7 @@ public class PlayerStats : CharacterStats
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
 
+        // update player manager
         PlayerManager.currentHealth = this.currentHealth;
     }
 

@@ -20,19 +20,32 @@ public class PlayerManager : MonoBehaviour
     public static int currentDamage = 50;
     public static int currentHealth = 100;
     public static int currentMaxHealth = 100;
+    public static int playerCurrentXp = 0;
+    public static int playerCurrentMaxXp = 20;
 
     private void Start()
     {
         PlayerStats stats = instance.player.GetComponent<PlayerStats>();
 
+        // set player damage
         stats.dmg = currentDamage;
+
+        // set player health status
         stats.currMaxHp = currentMaxHealth;
         stats.currHp = currentHealth;
+
+        // set player XP status
+        stats.xpBar.SetMaxXp(playerCurrentMaxXp);
+        stats.xpBar.SetXp(playerCurrentXp);
     }
 
     public void KillPlayer()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // reset stats 
+        ResetStats();
+
+        // load the main menu scene
+        SceneManager.LoadScene(0);
     }
 
     public void LevelUpPlayer()
@@ -58,5 +71,18 @@ public class PlayerManager : MonoBehaviour
         currentHealth = currentMaxHealth;
 
         instance.player.GetComponent<PlayerStats>().currMaxHp = currentMaxHealth;
+    }
+
+    void ResetStats()
+    {
+        playerLevel = 1;
+
+        currentDamage = 50;
+
+        currentHealth = 100;
+        currentMaxHealth = 100;
+
+        playerCurrentXp = 0;
+        playerCurrentMaxXp = 20;
     }
 }
