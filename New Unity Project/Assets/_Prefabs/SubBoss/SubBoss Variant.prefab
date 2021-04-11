@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f959941ebe81c9d48b2d0120885b61d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   healthBar: {fileID: 0}
   damage:
     baseValue: 0
@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 7847901376185100785, guid: 4a803ad098e05724889ed5c9fe5043ca,
         type: 3}
       propertyPath: m_StoppingDistance
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8592871797837129831, guid: 4a803ad098e05724889ed5c9fe5043ca,
         type: 3}
