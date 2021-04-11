@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SubBoss2Stats : EnemyStats
 {
+    public GameObject portal;
+
     public override void Die()
     {
         base.Die();
@@ -35,12 +37,15 @@ public class SubBoss2Stats : EnemyStats
         yield return new WaitForSeconds(2.5f);
 
         // destroy the game object
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
 
-        // wait for the object to be destroyed
-        yield return new WaitForSeconds(1);
+        // instatiate the portal
+        CreatePortal();
+    }
 
-        // move to the next scene
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    void CreatePortal()
+    {
+        GameObject go = Instantiate(portal);
+        go.transform.position = transform.position;
     }
 }

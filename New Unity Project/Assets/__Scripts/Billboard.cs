@@ -6,7 +6,6 @@ public class Billboard : MonoBehaviour
 {
     void LateUpdate()
     {
-        if (Camera.main != null)
-            transform.LookAt(Camera.main.transform.forward);    
+        transform.LookAt(Camera.main.transform, Camera.main.transform.up);
     }
 }

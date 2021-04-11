@@ -2016,6 +2016,7 @@ MonoBehaviour:
     type: 3}
   canvas: {fileID: 627214181895303921}
   isAlive: 0
+  portal: {fileID: 6321057283551626965, guid: 4d80979572d7a754ba47c9835c9b8219, type: 3}
 --- !u!1 &7880706469928897818
 GameObject:
   m_ObjectHideFlags: 0

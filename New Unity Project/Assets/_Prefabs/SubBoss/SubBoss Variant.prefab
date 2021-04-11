@@ -21,7 +21,8 @@ MonoBehaviour:
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
     type: 3}
   canvas: {fileID: 7275878856759247963}
-  _isAlive: 0
+  isAlive: 0
+  portal: {fileID: 6321057283551626965, guid: 4d80979572d7a754ba47c9835c9b8219, type: 3}
 --- !u!1001 &3078702233600169286
 PrefabInstance:
   m_ObjectHideFlags: 0

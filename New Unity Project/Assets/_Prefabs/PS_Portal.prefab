@@ -4763,6 +4763,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197117456303692125}
+  - component: {fileID: 5852052462461503886}
+  - component: {fileID: 3182005592830909959}
   m_Layer: 0
   m_Name: PS_Portal
   m_TagString: Untagged
@@ -4786,6 +4788,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5852052462461503886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321057283551626965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6193d23c3009994e9fd99a69c3fed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ringsPS: {fileID: 7962687867883754395}
+  color: {r: 0, g: 0.4509804, b: 1, a: 1}
+--- !u!136 &3182005592830909959
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321057283551626965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7962687867883754395
 GameObject:
   m_ObjectHideFlags: 0
