@@ -3,12 +3,11 @@
 public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth { get; protected set; }
+    public int currentHealth;
     
     public HealthBar healthBar;
 
     public Stat damage;
-    public Stat armor;
 
     private void Awake()
     {
@@ -16,9 +15,8 @@ public class CharacterStats : MonoBehaviour
         InitializeStatus();
     }
 
-    public virtual void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-        damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
@@ -26,22 +24,26 @@ public class CharacterStats : MonoBehaviour
         if (healthBar != null)
             healthBar.SetHealth(currentHealth);
 
+        AdditionalDmgOperations();
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    //public void IncreaseHealth(int health) {
-    //    currentHealth += health;
-    //    currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-    //    healthBar.SetHealth(currentHealth);
-    //}
+    public virtual void AdditionalDmgOperations()
+    {
+        // method to be overriden incase to add more items when taking damage
+    }
 
     public virtual void InitializeStatus()
     {
         if (healthBar != null)
+        {
             healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(currentHealth);
+        }
 
         // can be overriden to instantiate other stuff in the awake method
     }

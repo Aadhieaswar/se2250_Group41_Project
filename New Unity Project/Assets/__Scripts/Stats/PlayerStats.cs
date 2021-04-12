@@ -1,36 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats
 {
     // fields
     public XPBar xpBar;
-    public int xp { get; private set; }
+    public int xp;
     public int currentMaxXp = 20;
+
+    [HideInInspector]
+    public bool isAlive;
 
     public override void InitializeStatus()
     {
+        // Player prefs to store player data
+        maxHealth = PlayerPrefs.GetInt("PlayerCurrentMaxHealth", maxHealth);
+        currentHealth = PlayerPrefs.GetInt("PlayerCurrentHealth", maxHealth);
+
+        damage.SetValue(PlayerPrefs.GetInt("PlayerCurrentDamage", damage.GetValue()));
+
+        xp = PlayerPrefs.GetInt("PlayerCurrentXp", 0);
+        currentMaxXp = PlayerPrefs.GetInt("PlayerCurrentMaxXp", currentMaxXp);
+
+        // initialize the statuses after getting the data
         base.InitializeStatus();
-        xp = 0;
+
+        // set up the Xp bar
         xpBar.SetMaxXp(currentMaxXp);
+        xpBar.SetXp(xp);
+
+        // initialize isAlive variable
+        isAlive = true;
     }
 
-    public override void TakeDamage(int damage)
+    public override void AdditionalDmgOperations()
     {
-        base.TakeDamage(damage);
+        base.AdditionalDmgOperations();
 
-        // update player manager
-        PlayerManager.currentHealth = this.currentHealth;
+        // update player prefs
+        if (isAlive)
+            PlayerPrefs.SetInt("PlayerCurrentHealth", this.currentHealth);
     }
 
     public void IncreaseXp(int XP)
     {
         xp += XP;
 
-        // update player manager
-        PlayerManager.playerCurrentXp = xp;
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentXp", xp);
 
         if (xp >= currentMaxXp)
         {
@@ -47,15 +64,15 @@ public class PlayerStats : CharacterStats
         currentMaxXp += (int)(currentMaxXp * 0.25);
         xpBar.SetMaxXp(currentMaxXp);
 
-        // update player manager
-        PlayerManager.playerCurrentMaxXp = currentMaxXp;
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentMaxXp", currentMaxXp);
 
         // reset xp value and set it
         xp -= tmpMaxXp;
         xpBar.SetXp(xp);
 
-        // update player manager
-        PlayerManager.playerCurrentXp = xp;
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentXp", xp);
 
         // Show Level in status bar
         PlayerManager.instance.LevelUpPlayer();
@@ -68,7 +85,16 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
 
-        PlayerManager.instance.KillPlayer();
+        if (isAlive)
+        {
+            PlayerPrefs.DeleteAll();
+
+            // kill the player
+            PlayerManager.instance.KillPlayer();
+
+            // update the isAlive variable
+            isAlive = false;
+        }
     }
 
     public void IncreaseHealth(int health) {
@@ -76,55 +102,7 @@ public class PlayerStats : CharacterStats
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
 
-        // update player manager
-        PlayerManager.currentHealth = this.currentHealth;
-    }
-
-    // property to set damage of player
-    public int dmg
-    {
-        set
-        {
-            this.damage.SetValue(value);
-        }
-
-        get
-        {
-            return this.damage.GetValue();
-        }
-    }
-
-    // property to set health of player
-    public int currHp
-    {
-        set
-        {
-            this.currentHealth = value;
-            this.currentHealth = Mathf.Clamp(this.currentHealth, 0, int.MaxValue);
-
-            healthBar.SetHealth(this.currentHealth);
-        }
-
-        get
-        {
-            return this.currentHealth;
-        }
-    }
-
-    // property to set max health of player
-    public int currMaxHp
-    {
-        set
-        {
-            this.maxHealth = value;
-            this.maxHealth = Mathf.Clamp(this.maxHealth, 0, int.MaxValue);
-
-            healthBar.SetMaxHealth(this.maxHealth);
-        }
-
-        get
-        {
-            return this.maxHealth;
-        }
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentHealth", this.currentHealth);
     }
 }

@@ -10,14 +10,17 @@ public class PortalToNextLevel : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // load the next level
-            StartCoroutine(loadNextlevel());
+            StartCoroutine(LoadNextlevel());
         }
     }
 
-    IEnumerator loadNextlevel()
+    IEnumerator LoadNextlevel()
     {
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        int index = PlayerPrefs.GetInt("CurrentLevel", 1);
+        index += 1;
+
+        SceneManager.LoadSceneAsync(index);
     }
 }
