@@ -130,8 +130,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7075969562284690376, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7075969562284690376, guid: 3cafcbb206af9e44d8c62add0e659282,
+        type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: -2919791613885009377, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}

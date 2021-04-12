@@ -356,13 +356,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 891495717}
   damage:
     baseValue: 0
-  armor:
-    baseValue: 0
   xpBar: {fileID: 891495716}
+  xp: 0
   currentMaxXp: 20
+  isAlive: 0
 --- !u!114 &186661962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &610519723
 GameObject:
@@ -609,7 +610,7 @@ Transform:
   - {fileID: 943854386}
   - {fileID: 1880606900}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755878409
 GameObject:
@@ -671,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755878409}
   m_LocalRotation: {x: 0.021443745, y: 0.7987716, z: 0.028520742, w: -0.6005753}
-  m_LocalPosition: {x: 214, y: 15.051001, z: 154.25621}
+  m_LocalPosition: {x: 214, y: 14.9210005, z: 154.25621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1113158344}
@@ -959,6 +960,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cc13f543f0100b409e470eda03509a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &891495718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3961417706527434529, guid: 65640b5a5b64a9d40995efe75b9d4fd1,
+    type: 3}
+  m_PrefabInstance: {fileID: 891495714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &925937060
@@ -6272,6 +6285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656014859}
   - component: {fileID: 1656014858}
+  - component: {fileID: 1656014860}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6306,6 +6320,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656014860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656014857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a39286e5533d5042b88caab9f7372a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUI: {fileID: 891495718}
 --- !u!1 &1880606899
 GameObject:
   m_ObjectHideFlags: 0
@@ -11068,13 +11095,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 1656014859}
-  - component: {fileID: 1656014858}
-  - component: {fileID: 1656014860}
-=======
   - component: {fileID: 1920297870}
->>>>>>> 2551583165f0fed14f62c95efdd211e00d747707
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -11097,54 +11118,6 @@ Transform:
   - {fileID: 1107689719}
   m_Father: {fileID: 186661958}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2049645850
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2049645852}
-  - component: {fileID: 2049645851}
-  m_Layer: 0
-  m_Name: Henchman Spawn Location
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2049645851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049645850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2febb1c4f1a556a4c91446784a5b03b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedObject: {fileID: 7920028999249457868, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
-    type: 3}
---- !u!4 &2049645852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049645850}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 202, y: 15, z: 242}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 76611438}
-  - {fileID: 925937061}
-  - {fileID: 194336656}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978312975
 GameObject:
@@ -11211,6 +11184,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2049645850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049645852}
+  - component: {fileID: 2049645851}
+  m_Layer: 0
+  m_Name: Henchman Spawn Location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2049645851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049645850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2febb1c4f1a556a4c91446784a5b03b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedObject: {fileID: 7920028999249457868, guid: b5d84fcc47895954f9b88ccdd70cd8bf,
+    type: 3}
+--- !u!4 &2049645852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049645850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 202, y: 15, z: 242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 76611438}
+  - {fileID: 925937061}
+  - {fileID: 194336656}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2059590534
 GameObject:
