@@ -716,12 +716,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 617251861}
   damage:
-    baseValue: 0
+    baseValue: 50
   armor:
     baseValue: 0
   xpBar: {fileID: 141356994}
+  xp: 0
   currentMaxXp: 20
 --- !u!1 &317176485
 GameObject:

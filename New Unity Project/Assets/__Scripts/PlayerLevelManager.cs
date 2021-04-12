@@ -19,9 +19,9 @@ public class PlayerLevelManager : MonoBehaviour
 
     void Start()
     {
-        int currentLevel = PlayerManager.playerLevel;
+        int playerLevel = PlayerPrefs.GetInt("PlayerLevel", 1);
 
-        levelUI.SetText("Level " + currentLevel);
+        levelUI.SetText("Level " + playerLevel);
     }
 
     public void UpdateLevel(int level)
