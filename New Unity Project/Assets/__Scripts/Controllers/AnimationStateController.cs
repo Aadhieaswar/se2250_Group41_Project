@@ -11,7 +11,7 @@ public class AnimationStateController : MonoBehaviour
     int isWalkingHash;
     int isAttackingHash;
     bool isDead = false;
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,7 @@ public class AnimationStateController : MonoBehaviour
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isAttackingHash = Animator.StringToHash("isAttacking");
+        agent.destination = target.position;
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class AnimationStateController : MonoBehaviour
         bool isWalking = animator.GetBool(isWalkingHash);
 
         //the henchman only starts to walk and attack once the player is within certain distance
-        if(distance >=50 && !isDead){
+        if(distance >=75 && !isDead){
             agent.updatePosition = false;
             agent.SetDestination(target.position);
             animator.SetBool(isWalkingHash, false);
