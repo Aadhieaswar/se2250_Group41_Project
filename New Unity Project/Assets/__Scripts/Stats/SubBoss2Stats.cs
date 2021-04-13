@@ -23,6 +23,8 @@ public class SubBoss2Stats : EnemyStats
             // update variable
             isAlive = false;
 
+            // update the objectives class
+            ObjectivesForLevel.S.subBossAlive = false;
         }
     }
 

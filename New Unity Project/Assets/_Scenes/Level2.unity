@@ -681,6 +681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8909178545485608976, guid: ec167c4a971365b4caa86e7eacdfc721,
         type: 3}
+      propertyPath: killsNeeded
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909178545485608976, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
       propertyPath: spawnedObject
       value: 
       objectReference: {fileID: 7864823387133837076, guid: aac9a819272e00448afc7353d776b97e,
@@ -11309,6 +11314,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2055379743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8909178545485608976, guid: ec167c4a971365b4caa86e7eacdfc721,
+    type: 3}
+  m_PrefabInstance: {fileID: 674367390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0621bb7b41d684887ae8b236ed2bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2059590534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11709,7 +11726,7 @@ PrefabInstance:
         type: 3}
       propertyPath: subSpawner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2055379743}
     - target: {fileID: 2801217243888442011, guid: 2a8ba7258c9fc0b409708e496d1ec0b5,
         type: 3}
       propertyPath: objectives.Array.size
