@@ -15,6 +15,11 @@ public class EnemyStats : CharacterStats
 
     GameObject bar;
 
+    public virtual void OnHit()
+    {
+        // method to be called before the characters take damage incase to add animations and the such
+    }
+
     private void Start()
     {
         bar = Instantiate(healthBarGo);
@@ -33,12 +38,15 @@ public class EnemyStats : CharacterStats
 
         if (other.gameObject.CompareTag("Bullet"))
         {
+            OnHit();
             TakeDamage(damage.GetValue());
         }
 
         if (other.gameObject.CompareTag("Melee"))
         {
+            OnHit();
             TakeDamage(damage.GetValue() / 2);
         }
     }
+
 }

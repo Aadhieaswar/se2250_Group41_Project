@@ -18,9 +18,6 @@ public class PortalToNextLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        int index = PlayerPrefs.GetInt("CurrentLevel", 1);
-        index += 1;
-
-        SceneManager.LoadSceneAsync(index);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

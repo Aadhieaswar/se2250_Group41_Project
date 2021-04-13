@@ -7,7 +7,7 @@ public class SubBoss2ProjectileMovement : SubBossProjectileMovement
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("SubBoss2").transform;
+        target = GameObject.Find("SubBoss").transform;
     }
 
     // Update is called once per frame

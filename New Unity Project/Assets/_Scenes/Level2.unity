@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 2191065116456615011, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2191065116456615011, guid: 3cafcbb206af9e44d8c62add0e659282,
         type: 3}
@@ -359,7 +359,7 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 891495717}
   damage:
-    baseValue: 0
+    baseValue: 50
   xpBar: {fileID: 891495716}
   xp: 0
   currentMaxXp: 20
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 610519725}
   - component: {fileID: 610519724}
   m_Layer: 0
-  m_Name: Volcanic
+  m_Name: TerrainGroup_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,6 +612,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &674367390
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4944763
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 219.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249630590577568535, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338585590791631738, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: m_Name
+      value: SubBoss Spawn Point (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909178545485608976, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
+      propertyPath: spawnedObject
+      value: 
+      objectReference: {fileID: 7864823387133837076, guid: aac9a819272e00448afc7353d776b97e,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec167c4a971365b4caa86e7eacdfc721, type: 3}
 --- !u!1 &755878409
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +861,7 @@ RectTransform:
   - {fileID: 891495715}
   - {fileID: 2106748104}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1427,7 +1502,7 @@ GameObject:
   - component: {fileID: 1157789550}
   - component: {fileID: 1157789549}
   m_Layer: 0
-  m_Name: Terrain_0_0_3862d9f6-537e-4617-84d9-4e89f8033d4f
+  m_Name: Volcanic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11183,7 +11258,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049645850
 GameObject:
@@ -11231,7 +11306,7 @@ Transform:
   - {fileID: 925937061}
   - {fileID: 194336656}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2059590534
 GameObject:

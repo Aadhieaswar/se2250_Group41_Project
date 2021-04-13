@@ -21,14 +21,16 @@ public class FinalBoss : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
+        animator.SetFloat("Distance", distance);
+
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.transform.position);
 
             if (distance <= agent.stoppingDistance)
             {
-
-                animator.SetBool("IsAttacking", true);
+                // trigger the attack animation
+                animator.SetBool("PlayAttack1", true);
 
                 // face the target
                 FaceTarget();

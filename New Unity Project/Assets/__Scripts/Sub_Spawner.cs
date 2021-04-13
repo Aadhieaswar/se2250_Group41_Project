@@ -6,6 +6,9 @@ public class Sub_Spawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject spawnedObject;
+
+    public int killsNeeded = 2; 
+
     public static int killCount = 0;
 
     private void Spawn(){
@@ -17,7 +20,7 @@ public class Sub_Spawner : MonoBehaviour
     void Update()
     {
         //spawns the subboss once 2 henchman have been killed
-        if (killCount == 2)
+        if (killCount == killsNeeded)
         {
             Spawn();
             killCount++;
