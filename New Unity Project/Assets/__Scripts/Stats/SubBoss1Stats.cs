@@ -19,10 +19,12 @@ public class SubBoss1Stats : EnemyStats
             // play the death animation and start the next scene
             StartCoroutine(PlayDeathAnim());
             
-            // code to give the player the SubBoss powerUp
-
             // update the isAlive variable
             isAlive = false;
+
+            // update the objectives class
+            ObjectivesForLevel.S.subBossAlive = false;
+
         }
 	}
 

@@ -12,7 +12,7 @@ public class FinalBossStats : EnemyStats
         if (isAlive)
         {
             // give player XP
-            PlayerStats stats = PlayerManager.instance.GetComponent<PlayerStats>();
+            PlayerStats stats = PlayerManager.instance.player.GetComponent<PlayerStats>();
             stats.IncreaseXp(30);
 
             // play death animation

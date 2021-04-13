@@ -9,6 +9,8 @@ public class PortalToNextLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            ObjectivesForLevel.S.notEnteredPortal = false;
+
             // load the next level
             StartCoroutine(LoadNextlevel());
         }

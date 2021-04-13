@@ -20,8 +20,6 @@ public class SubBoss2Stats : EnemyStats
             // play death animation and move to next scene
             StartCoroutine(PlayDeathAnim());
 
-            // give the player the subBoss power
-
             // update variable
             isAlive = false;
 
