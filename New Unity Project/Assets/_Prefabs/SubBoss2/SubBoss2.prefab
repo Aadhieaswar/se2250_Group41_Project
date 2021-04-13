@@ -2007,16 +2007,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 0}
   damage:
-    baseValue: 0
-  armor:
     baseValue: 0
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
     type: 3}
   canvas: {fileID: 627214181895303921}
   isAlive: 0
-  portal: {fileID: 6321057283551626965, guid: 4d80979572d7a754ba47c9835c9b8219, type: 3}
+  portal: {fileID: 3794853877223843318, guid: 2a7dc9eff07efc34dafbbcd045ab3e5d, type: 3}
 --- !u!1 &7880706469928897818
 GameObject:
   m_ObjectHideFlags: 0
