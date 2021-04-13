@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : CharacterStats
 {
@@ -8,7 +9,16 @@ public class EnemyStats : CharacterStats
     public GameObject healthBarGo;
     public Canvas canvas;
 
+    // set dynamically
+    [HideInInspector]
+    public bool isAlive;
+
     GameObject bar;
+
+    public virtual void OnHit()
+    {
+        // method to be called before the characters take damage incase to add animations and the such
+    }
 
     private void Start()
     {
@@ -18,24 +28,25 @@ public class EnemyStats : CharacterStats
 
         healthBar = bar.GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
+
+        isAlive = true;
     }
-
-    public override void Die()
-	{
-		base.Die();
-
-        // Add ragdoll effect / death animation
-        this.GetComponent<Animator>().SetBool("IsDead", true);
-	}
 
     private void OnTriggerEnter(Collider other)
     {
+        Stat damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage;
+
         if (other.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(50);
+            OnHit();
+            TakeDamage(damage.GetValue());
         }
-        if (other.gameObject.CompareTag("Melee")) {
-            TakeDamage(25);
+
+        if (other.gameObject.CompareTag("Melee"))
+        {
+            OnHit();
+            TakeDamage(damage.GetValue() / 2);
         }
     }
+
 }

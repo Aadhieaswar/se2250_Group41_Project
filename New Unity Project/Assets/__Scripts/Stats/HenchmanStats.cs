@@ -2,27 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HenchmanStats : CharacterStats
+public class HenchmanStats : EnemyStats
 {
-    [Header("Set in Inspector")]
-    public GameObject healthBarGo;
     public GameObject heldHealer;
-    public Canvas canvas;
     private int random;
 
     AnimationStateController animationStateController;
-    GameObject bar;
-    bool _isAlive = true;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void InitializeStatus()
     {
-        bar = Instantiate(healthBarGo);
-        bar.transform.SetParent(canvas.transform, false);
-        bar.transform.localPosition = new Vector3(0, 0, 0);
-
-        healthBar = bar.GetComponent<HealthBar>();
-        healthBar.SetMaxHealth(maxHealth);
+        base.InitializeStatus();
 
         animationStateController = GetComponent<AnimationStateController>();
 
@@ -34,11 +23,14 @@ public class HenchmanStats : CharacterStats
         base.Die();
 
         // give the player XP points on death
-        if (_isAlive)
+        if (isAlive)
         {
             // give player xp for the kill
             PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
             playerStats.IncreaseXp(5);
+
+            //increase killounter
+            Sub_Spawner.killCount++;
 
             // play the death animation
             animationStateController.HenchmanDeathAnim();
@@ -50,23 +42,11 @@ public class HenchmanStats : CharacterStats
             }
 
             // update variable
-            _isAlive = false;
+            isAlive = false;
         }
 
         Destroy(gameObject, 3f);
 
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(50);
-        }
-        if (other.gameObject.CompareTag("Melee"))
-        {
-            TakeDamage(25);
-        }
     }
 
     private void InstantiateHealer()

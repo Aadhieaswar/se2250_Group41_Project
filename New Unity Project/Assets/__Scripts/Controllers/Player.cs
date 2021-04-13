@@ -35,7 +35,10 @@ public class Player : MonoBehaviour
             playerStats.TakeDamage(30);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("SubBoss2Attack")) {
+            playerStats.TakeDamage(40);
+            Destroy(other.gameObject);
+        }
     }
-
-
 }

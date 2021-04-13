@@ -1,25 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats
 {
-    // new fields
+    // fields
     public XPBar xpBar;
-    public int xp { get; private set; }
+    public int xp;
     public int currentMaxXp = 20;
+
+    [HideInInspector]
+    public bool isAlive;
 
     public override void InitializeStatus()
     {
+        // Player prefs to store player data
+        maxHealth = PlayerPrefs.GetInt("PlayerCurrentMaxHealth", maxHealth);
+        currentHealth = PlayerPrefs.GetInt("PlayerCurrentHealth", maxHealth);
+
+        damage.SetValue(PlayerPrefs.GetInt("PlayerCurrentDamage", damage.GetValue()));
+
+        xp = PlayerPrefs.GetInt("PlayerCurrentXp", 0);
+        currentMaxXp = PlayerPrefs.GetInt("PlayerCurrentMaxXp", currentMaxXp);
+
+        // initialize the statuses after getting the data
         base.InitializeStatus();
-        xp = 0;
+
+        // set up the Xp bar
         xpBar.SetMaxXp(currentMaxXp);
+        xpBar.SetXp(xp);
+
+        // initialize isAlive variable
+        isAlive = true;
+    }
+
+    public override void AdditionalDmgOperations()
+    {
+        base.AdditionalDmgOperations();
+
+        // update player prefs
+        if (isAlive)
+            PlayerPrefs.SetInt("PlayerCurrentHealth", this.currentHealth);
     }
 
     public void IncreaseXp(int XP)
     {
         xp += XP;
+
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentXp", xp);
+
         if (xp >= currentMaxXp)
         {
             LevelUp();
@@ -28,14 +57,25 @@ public class PlayerStats : CharacterStats
         xpBar.SetXp(xp);
     }
 
-    public void LevelUp()
+    void LevelUp()
     {
+        int tmpMaxXp = currentMaxXp;
+
         currentMaxXp += (int)(currentMaxXp * 0.25);
-        print(currentMaxXp);
         xpBar.SetMaxXp(currentMaxXp);
 
-        // reset xp value
-        xp -= maxHealth;
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentMaxXp", currentMaxXp);
+
+        // reset xp value and set it
+        xp -= tmpMaxXp;
+        xpBar.SetXp(xp);
+
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentXp", xp);
+
+        // Show Level in status bar
+        PlayerManager.instance.LevelUpPlayer();
 
         // code for selecting power up
         LevelUpMenu.S.ShowLevelUpOption();
@@ -44,6 +84,25 @@ public class PlayerStats : CharacterStats
     public override void Die()
     {
         base.Die();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (isAlive)
+        {
+            PlayerPrefs.DeleteAll();
+
+            // kill the player
+            PlayerManager.instance.KillPlayer();
+
+            // update the isAlive variable
+            isAlive = false;
+        }
+    }
+
+    public void IncreaseHealth(int health) {
+        currentHealth += health;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthBar.SetHealth(currentHealth);
+
+        // update player prefs
+        PlayerPrefs.SetInt("PlayerCurrentHealth", this.currentHealth);
     }
 }
