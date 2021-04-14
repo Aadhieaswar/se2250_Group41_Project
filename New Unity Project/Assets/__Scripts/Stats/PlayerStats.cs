@@ -97,6 +97,7 @@ public class PlayerStats : CharacterStats
         }
     }
 
+    
     public void IncreaseHealth(int health) {
         currentHealth += health;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
