@@ -12,17 +12,29 @@ public class SubBossProjectileMovement : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("SubBoss").transform;
+        FindShooter();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Move();
     }
 
     protected void Move() {
         if (target != null)
             rb.velocity = target.forward * speed;
+    }
+
+    public void FindShooter() {
+        if (GameObject.Find("SubBoss") == null)
+        {
+            target = GameObject.Find("Hero").transform;
+        }
+        else
+        {
+            target = GameObject.Find("SubBoss").transform;
+        }
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class SubBoss1Stats : EnemyStats
 {
     public GameObject portal;
-
     public override void Die()
 	{
 		base.Die();
@@ -18,7 +17,11 @@ public class SubBoss1Stats : EnemyStats
 
             // play the death animation and start the next scene
             StartCoroutine(PlayDeathAnim());
-            
+
+            // code to give the player the SubBoss powerUp 
+            PlayerPowerUp playerPowerUp = GameObject.Find("Hero").GetComponent<PlayerPowerUp>();
+            playerPowerUp.SubBossOneDefeated = true;
+
             // update the isAlive variable
             isAlive = false;
 

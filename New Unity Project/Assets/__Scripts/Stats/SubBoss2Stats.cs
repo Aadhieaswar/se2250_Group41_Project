@@ -20,6 +20,10 @@ public class SubBoss2Stats : EnemyStats
             // play death animation and move to next scene
             StartCoroutine(PlayDeathAnim());
 
+            // give the player the subBoss power
+            PlayerPowerUp playerPowerUp = GameObject.Find("Hero").GetComponent<PlayerPowerUp>();
+            playerPowerUp.SubBossTwoDefeated = true;
+
             // update variable
             isAlive = false;
 
