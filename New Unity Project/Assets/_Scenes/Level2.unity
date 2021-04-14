@@ -423,7 +423,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   playerStats: {fileID: 0}
-  delay: 10
 --- !u!1 &194336655
 GameObject:
   m_ObjectHideFlags: 0
