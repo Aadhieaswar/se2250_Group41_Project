@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SubBoss2Stats : EnemyStats
 {
     public GameObject portal;
+    public GameObject message;
 
     public override void Die()
     {
@@ -24,12 +25,28 @@ public class SubBoss2Stats : EnemyStats
             PlayerPowerUp playerPowerUp = GameObject.Find("Hero").GetComponent<PlayerPowerUp>();
             playerPowerUp.SubBossTwoDefeated = true;
 
+            // show message that player got the power up
+            StartCoroutine(ShowMessage());
+
             // update variable
             isAlive = false;
 
             // update the objectives class
             ObjectivesForLevel.S.subBossAlive = false;
         }
+    }
+
+    IEnumerator ShowMessage()
+    {
+        GameObject playerUI = GameObject.Find("GameUI");
+
+        yield return new WaitForSeconds(2f);
+
+        GameObject go = Instantiate(message);
+        go.transform.SetParent(playerUI.transform, false);
+        go.transform.localPosition = new Vector3(0, 0, 0);
+
+        Destroy(go, 4f);
     }
 
     IEnumerator PlayDeathAnim()

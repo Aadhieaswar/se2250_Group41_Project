@@ -2016,6 +2016,7 @@ MonoBehaviour:
   canvas: {fileID: 627214181895303921}
   isAlive: 0
   portal: {fileID: 3794853877223843318, guid: 2a7dc9eff07efc34dafbbcd045ab3e5d, type: 3}
+  message: {fileID: 4979768103098293745, guid: 8efa3d9fddea88d4393bf9b275d34f93, type: 3}
 --- !u!1 &7880706469928897818
 GameObject:
   m_ObjectHideFlags: 0
