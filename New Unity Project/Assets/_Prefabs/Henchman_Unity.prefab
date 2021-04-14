@@ -2984,6 +2984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409abbd4d86620d499be100f06f5a4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookRadius: 70
+  animator: {fileID: 7001111393326050616}
 --- !u!195 &-7019540721787127611
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2995,12 +2997,12 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -3033,16 +3035,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 0}
   damage:
     baseValue: 5
-  armor:
-    baseValue: 0
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
     type: 3}
+  canvas: {fileID: 8727370482804543956}
+  isAlive: 0
   heldHealer: {fileID: 4152205320759835433, guid: c250784e961fc4449a5a6d12edd97eb1,
     type: 3}
-  canvas: {fileID: 8727370482804543956}
 --- !u!1 &8083393129070302663
 GameObject:
   m_ObjectHideFlags: 0
