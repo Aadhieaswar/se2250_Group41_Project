@@ -11,7 +11,7 @@ public class Rotate : MonoBehaviour
         RotateObj();
     }
 
-    public void RotateObj()
+    public void RotateObj() //rotates desired gameobject (in our case the health pack)
     {
         float currentAngle = transform.rotation.eulerAngles.y;
         transform.rotation = Quaternion.AngleAxis(currentAngle + (Time.deltaTime * degreesPerSecond), Vector3.up);

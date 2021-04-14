@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
         Spawn();
     }
 
-    private void Spawn(){
+    private void Spawn(){ //spawns the henchmen in desired locations
         Instantiate(spawnedObject, transform.position, transform.rotation);
     }
 

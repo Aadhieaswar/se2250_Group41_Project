@@ -11,6 +11,9 @@ TagManager:
   - Melee
   - Healer
   - SubBoss2Attack
+  - SubBoss2
+  - SubBoss
+  - Lava
   layers:
   - Default
   - TransparentFX

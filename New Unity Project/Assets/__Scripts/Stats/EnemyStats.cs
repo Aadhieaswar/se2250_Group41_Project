@@ -20,6 +20,7 @@ public class EnemyStats : CharacterStats
         // method to be called before the characters take damage incase to add animations and the such
     }
 
+    //Start function will instantiate the bar and its position 
     private void Start()
     {
         bar = Instantiate(healthBarGo);
@@ -32,6 +33,7 @@ public class EnemyStats : CharacterStats
         isAlive = true;
     }
 
+    //This function will take different attacks into account
     private void OnTriggerEnter(Collider other)
     {
         Stat damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage;
@@ -40,12 +42,25 @@ public class EnemyStats : CharacterStats
         {
             OnHit();
             TakeDamage(damage.GetValue());
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Melee"))
         {
             OnHit();
             TakeDamage(damage.GetValue() / 2);
+        }
+
+        if (other.gameObject.CompareTag("SubBossAttack") && !(gameObject.CompareTag("SubBoss"))) {
+            OnHit();
+            TakeDamage(75);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("SubBoss2Attack") && !(gameObject.CompareTag("SubBoss2"))) {
+            OnHit();
+            TakeDamage(100);
+            Destroy(other.gameObject);
         }
     }
 

@@ -48,11 +48,12 @@ public class HenchmanStats : EnemyStats
         Destroy(gameObject, 3f);
 
     }
-
+    //This will instantiate the healer
     private void InstantiateHealer()
     {
         heldHealer.transform.position = this.transform.position;
         Vector3 heldHealerPosition = heldHealer.transform.position;
         Instantiate(heldHealer, new Vector3(heldHealerPosition.x, heldHealerPosition.y + 3, heldHealerPosition.z), Quaternion.Euler(0f, 0f, 0f));
     }
+
 }

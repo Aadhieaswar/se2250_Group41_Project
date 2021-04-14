@@ -3,33 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Same style of code as the subboss script
 public class SubBoss2 : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float lookRadius = 10f;
     public Animator animator;
 
     Transform target;
     NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
         animator.SetFloat("Distance", distance);
-
+        //suboss walks towards player
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-
+            //subboss attacks player from given distance
             if (distance <= agent.stoppingDistance)
             {
                 animator.SetBool("IsAttacking", true);

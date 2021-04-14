@@ -5,57 +5,64 @@ using UnityEngine.AI;
 
 public class AnimationStateController : MonoBehaviour
 {
-    NavMeshAgent agent;
-    Animator animator;
-    Transform target;
-    int isWalkingHash;
-    int isAttackingHash;
-    bool isDead = false;
+    public float lookRadius = 10f;
+    public Animator animator;
 
+    Transform target;
+    NavMeshAgent agent;
+
+    void Awake()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        isWalkingHash = Animator.StringToHash("isWalking");
-        isAttackingHash = Animator.StringToHash("isAttacking");
-        agent.destination = target.position;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        agent.updatePosition = false;
         float distance = Vector3.Distance(transform.position, target.position);
-        bool isAttacking = animator.GetBool(isAttackingHash);
-        bool isWalking = animator.GetBool(isWalkingHash);
 
-        //the henchman only starts to walk and attack once the player is within certain distance
-        if(distance >=75 && !isDead){
-            agent.updatePosition = false;
-            agent.SetDestination(target.position);
-            animator.SetBool(isWalkingHash, false);
-            animator.SetBool(isAttackingHash, false);
-        }
-        else if(distance >= 4.5 && !isDead)
+        //enemy walks towards player
+        if (distance <= lookRadius)
         {
+            agent.SetDestination(target.position);
+            animator.SetBool("isWalking", true);
             agent.updatePosition = true;
-            agent.SetDestination(target.position);
-            animator.SetBool(isWalkingHash, true);
-            animator.SetBool(isAttackingHash, false);
+
+            //enemy attacks player at given distance
+            if (distance <= agent.stoppingDistance)
+            {
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isAttacking", true);
+                agent.updatePosition = false;
+
+                // face the target
+                FaceTarget();
+            }
+            else
+            {
+                animator.SetBool("isAttacking", false);
+            }
         }
-        //henchman stops a certain distance from player and starts attacking
-        else
-        {
-            agent.updatePosition = false;
-            animator.SetBool(isWalkingHash, false);
-            animator.SetBool(isAttackingHash, true);
-        }
-       
     }
-    public void HenchmanDeathAnim()
+
+    void FaceTarget()
     {
-        isDead = true;
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+public void HenchmanDeathAnim()
+    {
         animator.SetTrigger("isDead");
     }
 

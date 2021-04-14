@@ -7,44 +7,55 @@ public class FinalBoss : MonoBehaviour
 {
     public float lookRadius = 30f;
     public Animator animator;
+    public FinalBossShooter1 shooter;
 
-    Transform target;
-    NavMeshAgent agent;
+    Transform _target;
+    NavMeshAgent _agent;
 
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
-        agent = GetComponent<NavMeshAgent>();
+        _target = PlayerManager.instance.player.transform;
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(_target.position, transform.position);
 
         animator.SetFloat("Distance", distance);
 
+        //finalboss walks towards player
         if (distance <= lookRadius)
         {
-            agent.SetDestination(target.transform.position);
+            //Have the final boss walk towards the player
+            _agent.SetDestination(_target.transform.position);
 
-            if (distance <= agent.stoppingDistance)
+            //final boss attacks player from specific distace
+            if (distance <= _agent.stoppingDistance)
             {
-                // trigger the attack animation
+                FinalBossStats stats = GetComponent<FinalBossStats>();
+
+                // trigger the attack1 animation
                 animator.SetBool("PlayAttack1", true);
 
                 // face the target
                 FaceTarget();
+            }
+            else
+            {
+                animator.SetBool("PlayAttack1", false);
             }
         }
     }
 
     void FaceTarget()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (_target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+    //shows how close the player has to be for the finalboss to start walking
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
