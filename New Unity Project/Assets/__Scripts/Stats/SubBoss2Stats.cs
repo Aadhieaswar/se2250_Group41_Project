@@ -21,7 +21,8 @@ public class SubBoss2Stats : EnemyStats
             StartCoroutine(PlayDeathAnim());
 
             // give the player the subBoss power
-
+            PlayerPowerUp playerPowerUp = GameObject.Find("Hero").GetComponent<PlayerPowerUp>();
+            playerPowerUp.SubBossTwoDefeated = true;
             // update variable
             isAlive = false;
 

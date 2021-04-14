@@ -40,12 +40,25 @@ public class EnemyStats : CharacterStats
         {
             OnHit();
             TakeDamage(damage.GetValue());
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Melee"))
         {
             OnHit();
             TakeDamage(damage.GetValue() / 2);
+        }
+
+        if (other.gameObject.CompareTag("SubBossAttack") && !(gameObject.CompareTag("SubBoss"))) {
+            OnHit();
+            TakeDamage(75);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("SubBoss2Attack") && !(gameObject.CompareTag("SubBoss2"))) {
+            OnHit();
+            TakeDamage(100);
+            Destroy(other.gameObject);
         }
     }
 
