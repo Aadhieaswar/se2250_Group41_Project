@@ -21,8 +21,12 @@ public class SubBoss1Stats : EnemyStats
             // code to give the player the SubBoss powerUp 
             PlayerPowerUp playerPowerUp = GameObject.Find("Hero").GetComponent<PlayerPowerUp>();
             playerPowerUp.SubBossOneDefeated = true;
+
             // update the isAlive variable
             isAlive = false;
+
+            // update the objectives class
+            ObjectivesForLevel.S.subBossAlive = false;
         }
 	}
 
