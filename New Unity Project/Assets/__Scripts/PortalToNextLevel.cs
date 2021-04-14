@@ -9,6 +9,7 @@ public class PortalToNextLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //checks if player has completed current level
             ObjectivesForLevel.S.notEnteredPortal = false;
 
             // load the next level
@@ -18,8 +19,9 @@ public class PortalToNextLevel : MonoBehaviour
 
     IEnumerator LoadNextlevel()
     {
+        //waits in teleporter for 2 sec
         yield return new WaitForSeconds(2f);
-
+        //display next level
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -23,14 +23,15 @@ public class SubBossProjectileMovement : MonoBehaviour
     }
 
     protected void Move() {
+        //moves the subboss projectile forward
         if (target != null)
             rb.velocity = target.forward * speed;
     }
 
-    public void FindShooter() {
+    public virtual void FindShooter() {
         if (GameObject.Find("SubBoss") == null)
         {
-            target = GameObject.Find("Hero").transform;
+            target = GameObject.Find("SpecialAttackShooter").transform;
         }
         else
         {

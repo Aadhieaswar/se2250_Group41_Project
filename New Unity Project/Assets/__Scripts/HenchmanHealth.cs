@@ -11,15 +11,16 @@ public class HenchmanHealth : MonoBehaviour
     {
         animationStateController = GetComponent<AnimationStateController>();
     }
-    public void DeductHealth(float deductHealth)
+    public void DeductHealth(float deductHealth) //when enemy takes damage
     {
         henchmanHealth -= deductHealth;
         if(henchmanHealth <= 0)
         {
+            //when enemey is 0hp, it dies
             henchmanDead();
         }
     }
-    void henchmanDead()
+    void henchmanDead() //calls death animation
     {
         animationStateController.HenchmanDeathAnim();
         

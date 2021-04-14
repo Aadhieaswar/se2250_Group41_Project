@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubBoss2ProjectileMovement : SubBossProjectileMovement
+public class SubBoss2ProjectileMovement : SubBossProjectileMovement //a subclass
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,16 @@ public class SubBoss2ProjectileMovement : SubBossProjectileMovement
     void Update()
     {
         Move();
+    }
+
+    public override void FindShooter() {
+        if (GameObject.Find("SubBoss2") == null)
+        {
+            target = GameObject.Find("SpecialAttackShooter").transform;
+        }
+        else
+        {
+            target = GameObject.Find("SubBoss2").transform;
+        }
     }
 }

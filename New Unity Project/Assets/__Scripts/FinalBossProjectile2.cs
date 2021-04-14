@@ -10,6 +10,7 @@ public class FinalBossProjectile2 : MonoBehaviour
 
     private void Start()
     {
+        //the final bosses speial attack
         ps = GetComponent<ParticleSystem>();
     }
 
@@ -19,6 +20,7 @@ public class FinalBossProjectile2 : MonoBehaviour
 
         for (int i = 0; i < events; i++)
         {
+            //checks if players hitbx is attacked before decreasing player health
             if (other.gameObject.CompareTag("Player"))
             {
                 other.GetComponent<PlayerStats>().TakeDamage(15);

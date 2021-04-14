@@ -22,8 +22,11 @@ public class Shoot : MonoBehaviour
     }
 
     public void ShootProjectile() {
+        //controls projectile rate
         currentTime += Time.deltaTime;
+        //awaits "attack" (fire) command
         if (Input.GetButton("Fire1") && currentTime > interval) {
+            //instantiates projectile
             Instantiate(projectileGameObject, projectile.transform.position, Quaternion.Euler(90f, 0f, 0f));
             currentTime = 0.0f;
         }

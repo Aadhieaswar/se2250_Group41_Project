@@ -20,6 +20,7 @@ public class EnemyStats : CharacterStats
         // method to be called before the characters take damage incase to add animations and the such
     }
 
+    //Start function will instantiate the bar and its position 
     private void Start()
     {
         bar = Instantiate(healthBarGo);
@@ -32,6 +33,7 @@ public class EnemyStats : CharacterStats
         isAlive = true;
     }
 
+    //This function will take different attacks into account
     private void OnTriggerEnter(Collider other)
     {
         Stat damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage;

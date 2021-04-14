@@ -7,7 +7,7 @@ public class BulletMovement : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Rigidbody projectile;
     [SerializeField] private GameObject gun;
-    [SerializeField] private float speed;
+    [SerializeField] private float _speed;
     void Start()
     {
         projectile = GetComponent<Rigidbody>();
@@ -16,7 +16,8 @@ public class BulletMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        projectile.velocity = gun.transform.forward * speed;
+    { 
+        //shoots the bullet in forward direction of player
+        projectile.velocity = gun.transform.forward * _speed;
     }
 }

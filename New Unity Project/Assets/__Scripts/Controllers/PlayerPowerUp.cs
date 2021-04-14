@@ -33,6 +33,7 @@ public class PlayerPowerUp : MonoBehaviour
         currentTime += Time.deltaTime;
     }
 
+    //checks if first subboss is defeated
     public bool SubBossOneDefeated {
         get {
             return _subBossOneDefeated;
@@ -43,6 +44,7 @@ public class PlayerPowerUp : MonoBehaviour
         }
     }
 
+    //checks if second subboss is defeated 
     public bool SubBossTwoDefeated
     {
         get
@@ -56,14 +58,15 @@ public class PlayerPowerUp : MonoBehaviour
         }
     }
 
-    public void FireAttackOne() {
+    public void FireAttackOne() //gained after defeating first subboss
+     {
         if (currentTime > interval) {
             Instantiate(attackOneProjectile, attackShooter.transform.position, Quaternion.Euler(0f, 0f, 0f));
             currentTime = 0.0f;
         }
      }
 
-    public void FireAttackTwo() {
+    public void FireAttackTwo() { //ganied after defeating second subboss
         if (currentTime > interval + 2)
         {
             Instantiate(attackTwoProjectile, attackShooter.transform.position, Quaternion.Euler(0f, 0f, 0f));
