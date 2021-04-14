@@ -15,12 +15,13 @@ public class FinalBossShooter1 : MonoBehaviour
 
     void Update()
     {
+        transform.LookAt(PlayerManager.instance.player.transform);
         ThrowProjectile();
     }
 
     void ThrowProjectile()
     {
-        if (currrentTime >= (1f/attacksPerSecond))
+        if (currrentTime >= (1f / attacksPerSecond))
         {
             if (animator.GetBool("PlayAttack1") && animator.GetFloat("Distance") < agent.stoppingDistance)
             {
@@ -33,5 +34,10 @@ public class FinalBossShooter1 : MonoBehaviour
         {
             currrentTime += Time.deltaTime;
         }
+    }
+
+    public void Shoot()
+    {
+        ps.Play();
     }
 }

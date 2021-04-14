@@ -21,7 +21,7 @@ public class FinalBossProjectile2 : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.GetComponent<PlayerStats>().TakeDamage(10);
+                other.GetComponent<PlayerStats>().TakeDamage(15);
             }
         }
     }

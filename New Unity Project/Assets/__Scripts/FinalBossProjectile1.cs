@@ -13,11 +13,6 @@ public class FinalBossProjectile1 : MonoBehaviour
         ps = GetComponent<ParticleSystem>();
     }
 
-    private void Update()
-    {
-        transform.LookAt(PlayerManager.instance.player.transform);
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         int events = ps.GetCollisionEvents(other, collEvents);
