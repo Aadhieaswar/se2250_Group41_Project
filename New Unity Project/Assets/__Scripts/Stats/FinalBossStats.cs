@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using TMPro;
 
 public class FinalBossStats : EnemyStats
 {
+    public GameObject message;
+
     public override void Die()
     {
         base.Die();
@@ -17,6 +19,9 @@ public class FinalBossStats : EnemyStats
 
             // play death animation
             StartCoroutine(PlayDeathAnim());
+
+            // Show win message / window
+            StartCoroutine(ShowMessage());
 
             // update isAlive variable
             isAlive = false;
@@ -33,7 +38,18 @@ public class FinalBossStats : EnemyStats
 
         // destroy the game object
         Destroy(gameObject, 1f);
+    }
 
-        // Show win message / window
+    IEnumerator ShowMessage()
+    {
+        GameObject playerUI = GameObject.Find("GameUI");
+
+        // wait for 2 seconds
+        yield return new WaitForSeconds(4f);
+
+        // show the win message
+        GameObject go = Instantiate(message);
+        go.transform.SetParent(playerUI.transform, false);
+        go.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
