@@ -240,10 +240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 0}
   damage:
-    baseValue: 0
-  armor:
     baseValue: 0
   healthBarGo: {fileID: 4236708610503545297, guid: a10ecf6acb6d9c448a9efc7ea1cf316a,
     type: 3}
@@ -600,6 +599,11 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b5bfaeb94d08df04caaba87e4c53d51a,
         type: 3}
       propertyPath: m_Name
+      value: SubBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5bfaeb94d08df04caaba87e4c53d51a,
+        type: 3}
+      propertyPath: m_TagString
       value: SubBoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []

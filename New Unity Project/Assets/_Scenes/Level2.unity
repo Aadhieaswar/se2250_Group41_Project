@@ -726,6 +726,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8909178545485608976, guid: ec167c4a971365b4caa86e7eacdfc721,
         type: 3}
+      propertyPath: killsNeeded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909178545485608976, guid: ec167c4a971365b4caa86e7eacdfc721,
+        type: 3}
       propertyPath: spawnedObject
       value: 
       objectReference: {fileID: 7864823387133837076, guid: aac9a819272e00448afc7353d776b97e,
