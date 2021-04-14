@@ -6,6 +6,7 @@ public class Sub_Spawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject spawnedObject;
+    public HenchmanStats henchmanStats;
 
     public int killsNeeded = 2; 
 
@@ -25,6 +26,7 @@ public class Sub_Spawner : MonoBehaviour
             Spawn();
             //resets the kill count for the next level
             killCount = 0;
+            henchmanStats.maxHealth += 100;
         }
     }
 }

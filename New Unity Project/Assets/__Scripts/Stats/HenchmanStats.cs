@@ -55,4 +55,5 @@ public class HenchmanStats : EnemyStats
         Vector3 heldHealerPosition = heldHealer.transform.position;
         Instantiate(heldHealer, new Vector3(heldHealerPosition.x, heldHealerPosition.y + 3, heldHealerPosition.z), Quaternion.Euler(0f, 0f, 0f));
     }
+
 }
