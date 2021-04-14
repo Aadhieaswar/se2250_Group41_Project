@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
     }
 
-    // Update is called once per frame
+    // Have the player take damage depending on what objects collide with it
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Henchman")) {
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
             playerStats.TakeDamage(1);
         }
     } 
+    //Have the lava continuously do damage to the player
     private void OnTriggerStay(Collider other){
         if (other.gameObject.CompareTag("Lava")) {
             elapsed += Time.deltaTime;

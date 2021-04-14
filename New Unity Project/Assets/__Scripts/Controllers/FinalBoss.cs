@@ -26,6 +26,7 @@ public class FinalBoss : MonoBehaviour
 
         if (distance <= lookRadius)
         {
+            //Have the final boss walk towards the player
             _agent.SetDestination(_target.transform.position);
 
             if (distance <= _agent.stoppingDistance)

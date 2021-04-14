@@ -14,7 +14,7 @@ public class BulletMovement : MonoBehaviour
         gun = GameObject.Find("Hero");
     }
 
-    // Update is called once per frame
+    //The velocity is equal to the transform of the gun times the initialized speed
     void Update()
     {
         projectile.velocity = gun.transform.forward * speed;

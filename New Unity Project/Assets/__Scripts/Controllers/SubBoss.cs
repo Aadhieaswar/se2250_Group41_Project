@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class SubBoss : MonoBehaviour
 {
-
-    public float lookRadius = 10f;
+    //Create a look radius that can be set in the inspector
+    public float lookRadius;
     public Animator animator;
 
     Transform target;
@@ -22,14 +22,15 @@ public class SubBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Calculate distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
-
+        //Make the subboss able to walk depending the distance
         animator.SetFloat("Distance", distance);
-
+        //If distance is less than or equal to the look radius, the subboss walks towards the player
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-
+            //When subboss gets to the stopping distance, have it fire its projectile
             if (distance <= agent.stoppingDistance)
             {
 

@@ -15,7 +15,7 @@ public class animationStateControl : MonoBehaviour
         gun = GameObject.Find("Shooter");
     }
 
-    // Update is called once per frame
+    //Detect keys to initiate animations and movement
     void Update()
     {
         if (Input.GetKey("w"))
@@ -68,6 +68,7 @@ public class animationStateControl : MonoBehaviour
             animator.SetBool("melee", false);
         }
 
+        //When right click is pressed, move the camera based on the x-axis of the mouse
         if (Input.GetButton("Fire2"))
         {
             transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
