@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class SubBoss2ProjectileMovement : SubBossProjectileMovement //a subclass
 {
-    // Start is called before the first frame update
     void Start()
     {
         FindShooter();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
     }
 
+    //Override subboss projectile movement to search for subboss2 instead of subboss
     public override void FindShooter() {
         if (GameObject.Find("SubBoss2") == null)
         {

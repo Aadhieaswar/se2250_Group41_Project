@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class SubBoss2Shooter : SubBossShooter //a subclass for the second boss
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        //Same method as throw projectile from subBossShooter
         ThrowProjectile();
     }
 }

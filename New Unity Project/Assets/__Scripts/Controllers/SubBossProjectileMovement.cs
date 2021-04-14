@@ -28,6 +28,7 @@ public class SubBossProjectileMovement : MonoBehaviour
             rb.velocity = target.forward * speed;
     }
 
+    //Find subboss 2 and if not attach the target to the game object that fires the projectile from the player
     public virtual void FindShooter() {
         if (GameObject.Find("SubBoss") == null)
         {

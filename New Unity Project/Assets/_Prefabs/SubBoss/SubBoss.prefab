@@ -249,6 +249,7 @@ MonoBehaviour:
   canvas: {fileID: 5638684974461325597}
   isAlive: 0
   portal: {fileID: 6321057283551626965, guid: 4d80979572d7a754ba47c9835c9b8219, type: 3}
+  message: {fileID: 4979768103098293745, guid: 543fee5624767de4da00b1f47e44a7dc, type: 3}
 --- !u!1001 &8899511498431321398
 PrefabInstance:
   m_ObjectHideFlags: 0
