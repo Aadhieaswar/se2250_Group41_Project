@@ -5,8 +5,8 @@ using UnityEngine;
 public class animationStateControl : MonoBehaviour
 {
     Animator animator;
-    private float walkingSpeed = 2.0f;
-    private float runningSpeed = 5.0f;
+    private float _walkingSpeed = 2.0f;
+    private float _runningSpeed = 5.0f;
     private GameObject gun;
     // Start is called before the first frame update
     void Start()
@@ -18,49 +18,53 @@ public class animationStateControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w")) //walk forwards
         {
             animator.SetBool("isWalkingPistol", true);
-            transform.position += transform.forward * Time.deltaTime * walkingSpeed;
-            if (Input.GetKey("left shift"))
+            transform.position += transform.forward * Time.deltaTime * _walkingSpeed;
+
+            if (Input.GetKey("left shift")) //runs forward
             {
                 animator.SetBool("isRunningPistol", false);
-                transform.position += transform.forward * Time.deltaTime * runningSpeed;
+                transform.position += transform.forward * Time.deltaTime * _runningSpeed;
             }
             else
             {
                 animator.SetBool("isRunningPistol", false);
             }
-        }
+        }       
         else {
             animator.SetBool("isWalkingPistol", false);
         }
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d")) //walk right
         {
             animator.SetBool("moveRight", true);
-            transform.position += transform.right * Time.deltaTime * walkingSpeed;
+            transform.position += transform.right * Time.deltaTime * _walkingSpeed;
         }
         else {
             animator.SetBool("moveRight", false);
         }
-        if (Input.GetKey("a"))
+
+        if (Input.GetKey("a")) // walk left
         {
             animator.SetBool("moveLeft", true);
-            transform.position += transform.right * -1 * Time.deltaTime * walkingSpeed;
+            transform.position += transform.right * -1 * Time.deltaTime * _walkingSpeed;
         }
         else {
             animator.SetBool("moveLeft", false);
         }
-        if (Input.GetKey("s"))
+
+        if (Input.GetKey("s")) //walk backwards
         {
             animator.SetBool("moveBack", true);
-            transform.position += transform.forward * -1 * Time.deltaTime * walkingSpeed;
+            transform.position += transform.forward * -1 * Time.deltaTime * _walkingSpeed;
         }
         else {
             animator.SetBool("moveBack", false);
         }
-        if (Input.GetKey("e"))
+
+        if (Input.GetKey("e")) //melee attack
         {
             animator.SetBool("melee", true);
         }
@@ -68,7 +72,7 @@ public class animationStateControl : MonoBehaviour
             animator.SetBool("melee", false);
         }
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2")) //shoot bullet
         {
             transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
             gun.transform.Rotate(0, Input.GetAxis("Mouse X"), 0);

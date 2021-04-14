@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubBoss2ProjectileMovement : SubBossProjectileMovement
+public class SubBoss2ProjectileMovement : SubBossProjectileMovement //a subclass
 {
     // Start is called before the first frame update
     void Start()

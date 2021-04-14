@@ -24,10 +24,12 @@ public class FinalBoss : MonoBehaviour
 
         animator.SetFloat("Distance", distance);
 
+        //finalboss walks towards player
         if (distance <= lookRadius)
         {
             _agent.SetDestination(_target.transform.position);
 
+            //final boss attacks player from specific distace
             if (distance <= _agent.stoppingDistance)
             {
                 FinalBossStats stats = GetComponent<FinalBossStats>();
@@ -52,6 +54,7 @@ public class FinalBoss : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+    //shows how close the player has to be for the finalboss to start walking
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

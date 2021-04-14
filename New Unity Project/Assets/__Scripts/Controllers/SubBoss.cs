@@ -25,11 +25,11 @@ public class SubBoss : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
 
         animator.SetFloat("Distance", distance);
-
+        //suboss walks towards player
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-
+            //subboss attacks player from given distance
             if (distance <= agent.stoppingDistance)
             {
 
