@@ -23,7 +23,8 @@ public class Sub_Spawner : MonoBehaviour
         if (killCount == killsNeeded)
         {
             Spawn();
-            killCount++;
+            //resets the kill count for the next level
+            killCount = 0;
         }
     }
 }

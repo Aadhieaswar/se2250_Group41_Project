@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     [Header("Set Dynamically")]
     public int currentHealth;
     public PlayerStats playerStats;
+    private float elapsed = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,5 +42,19 @@ public class Player : MonoBehaviour
             playerStats.TakeDamage(40);
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Lava")) {
+            playerStats.TakeDamage(1);
+        }
+    } 
+    private void OnTriggerStay(Collider other){
+        if (other.gameObject.CompareTag("Lava")) {
+            elapsed += Time.deltaTime;
+            //player ends up taking 3 dmg every secong
+            if (elapsed >= 0.3)
+           {
+              playerStats.TakeDamage(1);
+              elapsed = 0;
+           }
+       } 
     }
 }
