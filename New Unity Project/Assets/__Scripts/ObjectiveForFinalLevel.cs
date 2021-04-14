@@ -9,7 +9,7 @@ public class ObjectiveForFinalLevel : ObjectiveManager
     public override void CheckObjectives()
     {
         base.CheckObjectives();
-
+        //checks off final objective
         if (!finalBossStats.isAlive && !objectiveChecks[0])
         {
             objectives[0].SetTrigger("Complete");

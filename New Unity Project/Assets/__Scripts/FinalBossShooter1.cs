@@ -15,14 +15,17 @@ public class FinalBossShooter1 : MonoBehaviour
 
     void Update()
     {
+        //aims projectiles at player
         transform.LookAt(PlayerManager.instance.player.transform);
         ThrowProjectile();
     }
 
     void ThrowProjectile()
     {
+        //controls rate of fire
         if (currrentTime >= (1f / attacksPerSecond))
         {
+            //checks if attacking distance is achieved
             if (animator.GetBool("PlayAttack1") && animator.GetFloat("Distance") < agent.stoppingDistance)
             {
                 ps.Play();

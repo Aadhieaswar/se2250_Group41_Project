@@ -25,9 +25,9 @@ public class FinalBossShooter2 : MonoBehaviour
         StartEmission();
     }
 
-    void StartEmission()
+    void StartEmission() //final bosses special attack
     {
-        if (stats.currentHealth < (stats.maxHealth * 0.3))
+        if (stats.currentHealth < (stats.maxHealth * 0.3)) //activates onces boss is below 30% hp
         {
             if (!_isPlaying)
             {

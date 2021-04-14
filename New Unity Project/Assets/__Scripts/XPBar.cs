@@ -30,6 +30,7 @@ public class XPBar : MonoBehaviour
     public void SetXpStatusText(int maxXp, int XP = 0)
     {
         if (xpStatusText)
+            //sets xp to max
             xpStatusText.SetText(XP + " / " + maxXp);
     }
 }

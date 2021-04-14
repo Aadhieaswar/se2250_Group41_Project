@@ -17,14 +17,14 @@ public class PlayerLevelManager : MonoBehaviour
     // fields
     public TextMeshProUGUI levelUI;
 
-    void Start()
+    void Start() //displays player level on GUI
     {
         int playerLevel = PlayerPrefs.GetInt("PlayerLevel", 1);
 
         levelUI.SetText("Level " + playerLevel);
     }
 
-    public void UpdateLevel(int level)
+    public void UpdateLevel(int level) //updates player level on GUI
     {
         levelUI.text = "Level " + level;
     }

@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
 
     public void KillPlayer()
     {
+        //resets game 
+        
         // delete all stored values
         //PlayerPrefs.DeleteAll();
 

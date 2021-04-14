@@ -13,12 +13,15 @@ public class SubBossShooter : MonoBehaviour
 
     void Update()
     {
+        //called every frame
         ThrowProjectile();
     }
 
     public void ThrowProjectile()
     {
+        //checks to see if enemy is within attacking distane
         if (animator.GetBool("IsAttacking") && animator.GetFloat("Distance") < 20)
+            //controls the attack rate
             currentTime += Time.deltaTime;
 
         if (currentTime >= (1f/attacksPerSecond))
