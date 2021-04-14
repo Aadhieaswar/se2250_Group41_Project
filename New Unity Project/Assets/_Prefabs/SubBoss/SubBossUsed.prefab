@@ -11,7 +11,7 @@ PrefabInstance:
         type: 3}
       propertyPath: message
       value: 
-      objectReference: {fileID: 4979768103098293745, guid: 8efa3d9fddea88d4393bf9b275d34f93,
+      objectReference: {fileID: 4979768103098293745, guid: 543fee5624767de4da00b1f47e44a7dc,
         type: 3}
     - target: {fileID: 6247175126468339611, guid: 98a089e8f1c7f064aa001de4dad1670c,
         type: 3}

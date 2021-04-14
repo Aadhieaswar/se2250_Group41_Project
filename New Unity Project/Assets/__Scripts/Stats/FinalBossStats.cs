@@ -45,7 +45,7 @@ public class FinalBossStats : EnemyStats
         GameObject playerUI = GameObject.Find("GameUI");
 
         // wait for 2 seconds
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         // show the win message
         GameObject go = Instantiate(message);
