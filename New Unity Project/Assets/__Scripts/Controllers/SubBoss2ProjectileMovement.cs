@@ -15,4 +15,15 @@ public class SubBoss2ProjectileMovement : SubBossProjectileMovement
     {
         Move();
     }
+
+    public override void FindShooter() {
+        if (GameObject.Find("SubBoss2") == null)
+        {
+            target = GameObject.Find("SpecialAttackShooter").transform;
+        }
+        else
+        {
+            target = GameObject.Find("SubBoss2").transform;
+        }
+    }
 }

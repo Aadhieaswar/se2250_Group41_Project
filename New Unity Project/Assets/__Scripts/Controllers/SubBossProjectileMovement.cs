@@ -27,10 +27,10 @@ public class SubBossProjectileMovement : MonoBehaviour
             rb.velocity = target.forward * speed;
     }
 
-    public void FindShooter() {
+    public virtual void FindShooter() {
         if (GameObject.Find("SubBoss") == null)
         {
-            target = GameObject.Find("Hero").transform;
+            target = GameObject.Find("SpecialAttackShooter").transform;
         }
         else
         {

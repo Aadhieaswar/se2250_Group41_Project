@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Sub_Spawner : MonoBehaviour
@@ -14,7 +15,14 @@ public class Sub_Spawner : MonoBehaviour
 
     private void Spawn(){
         GameObject go = Instantiate(spawnedObject, transform.position, transform.rotation);
-        go.name = "SubBoss";
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            go.name = "SubBoss";
+        }
+        else {
+            go.name = "SubBoss2";
+        }
+        
     }
 
     // Update is called once per frame
@@ -26,7 +34,10 @@ public class Sub_Spawner : MonoBehaviour
             Spawn();
             //resets the kill count for the next level
             killCount = 0;
-            henchmanStats.maxHealth += 100;
+            if (henchmanStats != null)
+            {
+                henchmanStats.maxHealth += 100;
+            }
         }
     }
 }
