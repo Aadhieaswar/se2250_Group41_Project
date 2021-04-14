@@ -49,6 +49,7 @@ public class PlayerPowerUp : MonoBehaviour
         }
     }
 
+    //checks if second subboss is defeated
     public bool SubBossTwoDefeated
     {
         get
@@ -70,7 +71,7 @@ public class PlayerPowerUp : MonoBehaviour
         }
      }
 
-    public void FireAttackTwo() {
+    public void FireAttackTwo() { //ganied after defeating second subboss
         if (currentTime > interval + 2)
         {
             Instantiate(attackTwoProjectile, attackShooter.transform.position, Quaternion.Euler(0f, 0f, 0f));

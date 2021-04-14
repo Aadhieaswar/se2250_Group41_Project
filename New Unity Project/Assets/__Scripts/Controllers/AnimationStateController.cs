@@ -30,12 +30,14 @@ public class AnimationStateController : MonoBehaviour
         agent.updatePosition = false;
         float distance = Vector3.Distance(transform.position, target.position);
 
+        //enemy walks towards player
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
             animator.SetBool("isWalking", true);
             agent.updatePosition = true;
 
+            //enemy attacks player at given distance
             if (distance <= agent.stoppingDistance)
             {
                 animator.SetBool("isWalking", false);
@@ -61,7 +63,6 @@ public class AnimationStateController : MonoBehaviour
 
 public void HenchmanDeathAnim()
     {
-    
         animator.SetTrigger("isDead");
     }
 

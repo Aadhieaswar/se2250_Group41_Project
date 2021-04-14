@@ -23,6 +23,7 @@ public class SubBossProjectileMovement : MonoBehaviour
     }
 
     protected void Move() {
+        //moves the subboss projectile forward
         if (target != null)
             rb.velocity = target.forward * speed;
     }
