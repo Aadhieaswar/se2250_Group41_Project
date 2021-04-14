@@ -48,7 +48,7 @@ public class HenchmanStats : EnemyStats
         Destroy(gameObject, 3f);
 
     }
-
+    //This will instantiate the healer
     private void InstantiateHealer()
     {
         heldHealer.transform.position = this.transform.position;

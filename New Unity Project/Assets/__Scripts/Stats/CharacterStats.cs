@@ -2,19 +2,22 @@
 
 public class CharacterStats : MonoBehaviour
 {
+    //attributes
     public int maxHealth = 100;
     public int currentHealth;
-    
+
     public HealthBar healthBar;
 
     public Stat damage;
 
+    //Awake function is called and currentHealth is set to max Health and it Intializes Status 
     private void Awake()
     {
         currentHealth = maxHealth;
         InitializeStatus();
     }
 
+    //This method will take hits and will deduct health and if health equals 0, it is dead
     public void TakeDamage(int damage)
     {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);

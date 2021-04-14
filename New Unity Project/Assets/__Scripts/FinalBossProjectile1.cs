@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class FinalBossProjectile1 : MonoBehaviour
 
     private void Start()
     {
+        //final bosses basic attack
         ps = GetComponent<ParticleSystem>();
     }
 
@@ -19,6 +21,7 @@ public class FinalBossProjectile1 : MonoBehaviour
 
         for (int i = 0; i < events; i++)
         {
+            //checcks if the players hitbox is attacked before decreasing player health
             if (other.gameObject.CompareTag("Player"))
             {
                 other.GetComponent<PlayerStats>().TakeDamage(35);

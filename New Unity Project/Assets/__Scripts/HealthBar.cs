@@ -35,6 +35,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealthStatusText(int health, int maxHealth)
     {
+        //sets heath display in GUI
         if (healthStatusText)
             healthStatusText.SetText(health + " / " + maxHealth);
     }

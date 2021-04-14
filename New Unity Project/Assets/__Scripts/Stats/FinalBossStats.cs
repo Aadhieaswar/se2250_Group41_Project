@@ -23,18 +23,6 @@ public class FinalBossStats : EnemyStats
         }
     }
 
-    //IEnumerator PlayHitAnimation()
-    //{
-    //    this.GetComponent<NavMeshAgent>().isStopped = true;
-    //    this.GetComponent<Animator>().SetTrigger("TakeHit");
-
-    //    yield return new WaitForSeconds(2f);
-
-    //    this.GetComponent<NavMeshAgent>().isStopped = false;
-    //    float distance = Vector3.Distance(PlayerManager.instance.player.transform.position, transform.position);
-    //    this.GetComponent<Animator>().SetFloat("Distance", distance);
-    //}
-
     IEnumerator PlayDeathAnim()
     {
         // trigger the death animation
